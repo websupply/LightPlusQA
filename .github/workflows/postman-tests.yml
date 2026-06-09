@@ -176,7 +176,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
-          
+
       - name: Gerar index.html
         run: |
           cat << 'EOF' > index.html
@@ -217,3 +217,8 @@ jobs:
           </body>
           </html>
           EOF
+          
+      - name: Verificar arquivos antes do deploy
+        run: |
+        echo "Conteúdo da pasta atual:"
+        ls -la
