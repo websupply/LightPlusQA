@@ -10,6 +10,10 @@ jobs:
     name: Pedido Catalogo - Smoke
     runs-on: ubuntu-latest
 
+    env:
+      VUSUARIO: ${{ secrets.VUSUARIO }}
+      VSENHA: ${{ secrets.VSENHA }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -20,14 +24,21 @@ jobs:
         run: |
           newman run api-v1.0.postman_collection.json \
           -e HOM.postman_environment.json \
+          --env-var vUsuario=$VUSUARIO \
+          --env-var vSenha=$VSENHA \
           --folder "02-PEDIDO_CATALOGO" \
           --folder "SMOKE" \
           --reporters cli
+
 
   validation:
     name: Pedido Catalogo - Validation
     runs-on: ubuntu-latest
     needs: smoke
+
+    env:
+      VUSUARIO: ${{ secrets.VUSUARIO }}
+      VSENHA: ${{ secrets.VSENHA }}
 
     steps:
       - uses: actions/checkout@v4
@@ -39,14 +50,21 @@ jobs:
         run: |
           newman run api-v1.0.postman_collection.json \
           -e HOM.postman_environment.json \
+          --env-var vUsuario=$VUSUARIO \
+          --env-var vSenha=$VSENHA \
           --folder "02-PEDIDO_CATALOGO" \
           --folder "VALIDATION" \
           --reporters cli
+
 
   business:
     name: Pedido Catalogo - Business Rule
     runs-on: ubuntu-latest
     needs: validation
+
+    env:
+      VUSUARIO: ${{ secrets.VUSUARIO }}
+      VSENHA: ${{ secrets.VSENHA }}
 
     steps:
       - uses: actions/checkout@v4
@@ -58,14 +76,21 @@ jobs:
         run: |
           newman run api-v1.0.postman_collection.json \
           -e HOM.postman_environment.json \
+          --env-var vUsuario=$VUSUARIO \
+          --env-var vSenha=$VSENHA \
           --folder "02-PEDIDO_CATALOGO" \
           --folder "BUSINESS_RULE" \
           --reporters cli
+
 
   alteracao:
     name: Pedido Catalogo - Alteracao
     runs-on: ubuntu-latest
     needs: business
+
+    env:
+      VUSUARIO: ${{ secrets.VUSUARIO }}
+      VSENHA: ${{ secrets.VSENHA }}
 
     steps:
       - uses: actions/checkout@v4
@@ -77,6 +102,8 @@ jobs:
         run: |
           newman run api-v1.0.postman_collection.json \
           -e HOM.postman_environment.json \
+          --env-var vUsuario=$VUSUARIO \
+          --env-var vSenha=$VSENHA \
           --folder "02-PEDIDO_CATALOGO" \
           --folder "ALTERACAO" \
           --reporters cli
