@@ -176,20 +176,18 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
-
       - name: Gerar index principal
         run: |
-          cat <<'EOF' > public/index.html
+          cat <<EOF > public/index.html
           <!DOCTYPE html>
-          <html lang="pt-BR">
+          <html>
           <head>
             <meta charset="UTF-8">
             <title>LightPlus - Dashboard</title>
-            <meta http-equiv="refresh" content="0; url=./$(ls -t public | head -n1)/">
           </head>
           <body style="background:#0a0e1a;color:white;font-family:Arial;padding:40px">
             <h1>LightPlus - Pedido Catálogo</h1>
-            <p>Redirecionando para última execução...</p>
+            <p>Dashboard ativo.</p>
           </body>
           </html>
           EOF
