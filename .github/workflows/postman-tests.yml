@@ -20,7 +20,6 @@ jobs:
             -e HOM.postman_environment.json \
             --env-var vUsuario=$VUSUARIO \
             --env-var vSenha=$VSENHA \
-            --folder "02-PEDIDO_CATALOGO" \
             --folder "SMOKE" \
             --reporters cli,json \
             --reporter-json-export smoke-report.json
@@ -45,7 +44,6 @@ jobs:
             -e HOM.postman_environment.json \
             --env-var vUsuario=$VUSUARIO \
             --env-var vSenha=$VSENHA \
-            --folder "02-PEDIDO_CATALOGO" \
             --folder "VALIDATION" \
             --reporters cli,json \
             --reporter-json-export validation-report.json
@@ -70,7 +68,6 @@ jobs:
             -e HOM.postman_environment.json \
             --env-var vUsuario=$VUSUARIO \
             --env-var vSenha=$VSENHA \
-            --folder "02-PEDIDO_CATALOGO" \
             --folder "BUSINESS_RULE" \
             --reporters cli,json \
             --reporter-json-export business-report.json
@@ -95,7 +92,6 @@ jobs:
             -e HOM.postman_environment.json \
             --env-var vUsuario=$VUSUARIO \
             --env-var vSenha=$VSENHA \
-            --folder "02-PEDIDO_CATALOGO" \
             --folder "ALTERACAO" \
             --reporters cli,json \
             --reporter-json-export alteracao-report.json
