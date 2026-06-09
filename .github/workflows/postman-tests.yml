@@ -176,18 +176,44 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
-      - name: Gerar index principal
+          
+      - name: Gerar index.html
         run: |
-          cat <<EOF > public/index.html
+          cat << 'EOF' > index.html
           <!DOCTYPE html>
           <html>
           <head>
-            <meta charset="UTF-8">
-            <title>LightPlus - Dashboard</title>
+              <meta charset="UTF-8">
+              <title>Pedido Catálogo - Dashboard</title>
+              <style>
+                  body { font-family: Arial; background:#111; color:#eee; padding:40px }
+                  h1 { color:#4CAF50 }
+                  .card { background:#1e1e1e; padding:20px; margin:20px 0; border-radius:8px }
+              </style>
           </head>
-          <body style="background:#0a0e1a;color:white;font-family:Arial;padding:40px">
-            <h1>LightPlus - Pedido Catálogo</h1>
-            <p>Dashboard ativo.</p>
+          <body>
+              <h1>Pedido Catálogo - Histórico de Execuções</h1>
+              <div id="content"></div>
+
+              <script>
+                  fetch('history.json')
+                      .then(r => r.json())
+                      .then(data => {
+                          let html = '';
+                          data.reverse().forEach(run => {
+                              html += `
+                                  <div class="card">
+                                      <h3>${run.timestamp}</h3>
+                                      <p>Total: ${run.total}</p>
+                                      <p>Passou: ${run.passed}</p>
+                                      <p>Falhou: ${run.failed}</p>
+                                      <p>Duração: ${run.duration}s</p>
+                                  </div>
+                              `;
+                          });
+                          document.getElementById('content').innerHTML = html;
+                      });
+              </script>
           </body>
           </html>
           EOF
