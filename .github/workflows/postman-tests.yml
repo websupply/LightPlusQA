@@ -1,4 +1,4 @@
-name: Postman API Tests
+name: Pedido Catalogo API Tests
 
 on:
   push:
@@ -7,18 +7,56 @@ on:
     branches: [ main ]
 
 jobs:
-  run-postman-tests:
+
+  smoke:
+    name: Smoke Tests
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Install Newman
         run: npm install -g newman
 
-      - name: Run Postman Collection
+      - name: Run Smoke Tests
         run: |
           newman run api-v1.0.postman_collection.json \
           -e HOM.postman_environment.json \
+          --folder "Smoke" \
+          --reporters cli
+
+  validation:
+    name: Validation Tests
+    runs-on: ubuntu-latest
+    needs: smoke
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Run Validation Tests
+        run: |
+          newman run api-v1.0.postman_collection.json \
+          -e HOM.postman_environment.json \
+          --folder "Validation" \
+          --reporters cli
+
+  business:
+    name: Business Rule Tests
+    runs-on: ubuntu-latest
+    needs: validation
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Run Business Tests
+        run: |
+          newman run api-v1.0.postman_collection.json \
+          -e HOM.postman_environment.json \
+          --folder "Business" \
           --reporters cli
