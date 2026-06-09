@@ -19,6 +19,6 @@ jobs:
 
       - name: Run Postman Collection
         run: |
-          newman run postman/api-v1.0.postman_collection.json \
-          -e postman/hom.postman_environment.json \
+          newman run Postman/API\ -\ v1.0.postman_collection.json \
+          -e Postman/HOM.postman_environment.json \
           --reporters cli
