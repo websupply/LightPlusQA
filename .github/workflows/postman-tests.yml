@@ -160,11 +160,62 @@ jobs:
       - name: Criar index.html
         run: |
           echo "<!DOCTYPE html>" > public/index.html
-          echo "<html><head><meta charset='UTF-8'><title>Dashboard</title></head>" >> public/index.html
-          echo "<body style='background:#111;color:#eee;font-family:Arial;padding:40px'>" >> public/index.html
-          echo "<h1>Pedido Catálogo - Dashboard</h1>" >> public/index.html
-          echo "<p>Última atualização: $(date)</p>" >> public/index.html
-          echo "<p>Total: $TOTAL | Passed: $PASSED | Failed: $FAILED | Success: $SUCCESS%</p>" >> public/index.html
+          echo "<html><head>" >> public/index.html
+          echo "<meta charset='UTF-8'>" >> public/index.html
+          echo "<title>Pedido Catálogo Dashboard</title>" >> public/index.html
+          echo "<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>" >> public/index.html
+          echo "<style>" >> public/index.html
+          echo "body{background:#111;color:#eee;font-family:Arial;padding:40px}" >> public/index.html
+          echo ".card{padding:15px;margin:10px 0;border-radius:8px}" >> public/index.html
+          echo ".ok{background:#1e4620}" >> public/index.html
+          echo ".warn{background:#5a4b00}" >> public/index.html
+          echo ".fail{background:#5a0000}" >> public/index.html
+          echo "</style></head><body>" >> public/index.html
+          echo "<h1>Pedido Catálogo - Histórico</h1>" >> public/index.html
+          echo "<div id='cards'></div>" >> public/index.html
+          echo "<canvas id='chart' height='100'></canvas>" >> public/index.html
+
+          echo "<script>
+          fetch('history.json')
+          .then(r=>r.json())
+          .then(data=>{
+          data.reverse();
+          let html='';
+          let labels=[];
+          let success=[];
+          data.forEach(run=>{
+          let cls='ok';
+          if(run.failed>0) cls='fail';
+          else if(run.success<100) cls='warn';
+
+          html+=\`
+          <div class='card \${cls}'>
+          <strong>\${run.date}</strong><br>
+          Total: \${run.total} |
+          Passed: \${run.passed} |
+          Failed: \${run.failed} |
+          Success: \${run.success}%
+          </div>\`;
+          labels.push(run.date);
+          success.push(run.success);
+          });
+          document.getElementById('cards').innerHTML=html;
+
+          new Chart(document.getElementById('chart'),{
+          type:'line',
+          data:{
+          labels:labels,
+          datasets:[{
+          label:'Taxa de Sucesso (%)',
+          data:success,
+          borderColor:'#4CAF50',
+          fill:false
+          }]
+          }
+          });
+          });
+          </script>" >> public/index.html
+
           echo "</body></html>" >> public/index.html
 
       - name: Verificar arquivos antes do deploy
