@@ -3,13 +3,11 @@ name: Pedido Catalogo API Tests
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
 
   smoke:
-    name: Smoke Tests
+    name: Pedido Catalogo - Smoke
     runs-on: ubuntu-latest
 
     steps:
@@ -22,11 +20,12 @@ jobs:
         run: |
           newman run api-v1.0.postman_collection.json \
           -e HOM.postman_environment.json \
-          --folder "Smoke" \
+          --folder "02-PEDIDO_CATALOGO" \
+          --folder "SMOKE" \
           --reporters cli
 
   validation:
-    name: Validation Tests
+    name: Pedido Catalogo - Validation
     runs-on: ubuntu-latest
     needs: smoke
 
@@ -40,11 +39,12 @@ jobs:
         run: |
           newman run api-v1.0.postman_collection.json \
           -e HOM.postman_environment.json \
-          --folder "Validation" \
+          --folder "02-PEDIDO_CATALOGO" \
+          --folder "VALIDATION" \
           --reporters cli
 
   business:
-    name: Business Rule Tests
+    name: Pedido Catalogo - Business Rule
     runs-on: ubuntu-latest
     needs: validation
 
@@ -58,5 +58,6 @@ jobs:
         run: |
           newman run api-v1.0.postman_collection.json \
           -e HOM.postman_environment.json \
-          --folder "Business" \
+          --folder "02-PEDIDO_CATALOGO" \
+          --folder "BUSINESS_RULE" \
           --reporters cli
