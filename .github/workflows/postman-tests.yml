@@ -9,19 +9,13 @@ jobs:
   smoke:
     name: Pedido Catalogo - Smoke
     runs-on: ubuntu-latest
-
     env:
       VUSUARIO: ${{ secrets.VUSUARIO }}
       VSENHA: ${{ secrets.VSENHA }}
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install Newman
-        run: npm install -g newman
-
-      - name: Run Smoke Tests
-        run: |
+      - run: npm install -g newman
+      - run: |
           newman run api-v1.0.postman_collection.json \
           -e HOM.postman_environment.json \
           --env-var vUsuario=$VUSUARIO \
@@ -30,24 +24,17 @@ jobs:
           --folder "SMOKE" \
           --reporters cli
 
-
   validation:
     name: Pedido Catalogo - Validation
     runs-on: ubuntu-latest
     needs: smoke
-
     env:
       VUSUARIO: ${{ secrets.VUSUARIO }}
       VSENHA: ${{ secrets.VSENHA }}
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install Newman
-        run: npm install -g newman
-
-      - name: Run Validation Tests
-        run: |
+      - run: npm install -g newman
+      - run: |
           newman run api-v1.0.postman_collection.json \
           -e HOM.postman_environment.json \
           --env-var vUsuario=$VUSUARIO \
@@ -56,24 +43,17 @@ jobs:
           --folder "VALIDATION" \
           --reporters cli
 
-
   business:
     name: Pedido Catalogo - Business Rule
     runs-on: ubuntu-latest
     needs: validation
-
     env:
       VUSUARIO: ${{ secrets.VUSUARIO }}
       VSENHA: ${{ secrets.VSENHA }}
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install Newman
-        run: npm install -g newman
-
-      - name: Run Business Tests
-        run: |
+      - run: npm install -g newman
+      - run: |
           newman run api-v1.0.postman_collection.json \
           -e HOM.postman_environment.json \
           --env-var vUsuario=$VUSUARIO \
@@ -82,24 +62,17 @@ jobs:
           --folder "BUSINESS_RULE" \
           --reporters cli
 
-
   alteracao:
     name: Pedido Catalogo - Alteracao
     runs-on: ubuntu-latest
     needs: business
-
     env:
       VUSUARIO: ${{ secrets.VUSUARIO }}
       VSENHA: ${{ secrets.VSENHA }}
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install Newman
-        run: npm install -g newman
-
-      - name: Run Alteracao Tests
-        run: |
+      - run: npm install -g newman
+      - run: |
           newman run api-v1.0.postman_collection.json \
           -e HOM.postman_environment.json \
           --env-var vUsuario=$VUSUARIO \
@@ -107,3 +80,99 @@ jobs:
           --folder "02-PEDIDO_CATALOGO" \
           --folder "ALTERACAO" \
           --reporters cli
+
+  dashboard:
+    name: Gerar Dashboard
+    runs-on: ubuntu-latest
+    needs: [smoke, validation, business, alteracao]
+    if: always()
+
+    permissions:
+      contents: write
+
+    env:
+      VUSUARIO: ${{ secrets.VUSUARIO }}
+      VSENHA: ${{ secrets.VSENHA }}
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Instalar dependências
+        run: |
+          npm install -g newman
+          sudo apt-get update
+          sudo apt-get install -y jq bc
+
+      - name: Baixar histórico existente
+        run: |
+          git clone --depth=1 --branch gh-pages https://github.com/${{ github.repository }} gh-pages || true
+          mkdir -p public
+          cp -r gh-pages/* public/ || true
+
+      - name: Rodar testes consolidados
+        run: |
+          newman run api-v1.0.postman_collection.json \
+          -e HOM.postman_environment.json \
+          --env-var vUsuario=$VUSUARIO \
+          --env-var vSenha=$VSENHA \
+          --folder "02-PEDIDO_CATALOGO" \
+          --reporters cli,json \
+          --reporter-json-export report.json
+        continue-on-error: true
+
+      - name: Extrair métricas
+        run: |
+          TOTAL=$(jq '.run.stats.assertions.total' report.json)
+          FAILED=$(jq '.run.stats.assertions.failed' report.json)
+          PASSED=$(jq '.run.stats.assertions.total - .run.stats.assertions.failed' report.json)
+          SUCCESS=$(awk "BEGIN {printf \"%.2f\", ($PASSED/$TOTAL)*100}")
+
+          echo "TOTAL=$TOTAL" >> $GITHUB_ENV
+          echo "FAILED=$FAILED" >> $GITHUB_ENV
+          echo "PASSED=$PASSED" >> $GITHUB_ENV
+          echo "SUCCESS=$SUCCESS" >> $GITHUB_ENV
+
+      - name: Gerar timestamp
+        run: |
+          DATE=$(TZ="America/Sao_Paulo" date +'%Y-%m-%d_%H-%M-%S')
+          echo "DATE=$DATE" >> $GITHUB_ENV
+
+      - name: Criar estrutura
+        run: mkdir -p public/$DATE
+
+      - name: Gerar details.json
+        run: |
+          jq '{
+            summary: .run.stats,
+            failures: .run.failures,
+            executions: .run.executions
+          }' report.json > public/$DATE/details.json
+
+      - name: Atualizar history.json
+        run: |
+          FILE=public/history.json
+          if [ ! -f "$FILE" ]; then
+            echo "[]" > $FILE
+          fi
+
+          jq ". += [{
+            \"date\": \"$DATE\",
+            \"folder\": \"$DATE\",
+            \"failed\": $FAILED,
+            \"passed\": $PASSED,
+            \"total\": $TOTAL,
+            \"success\": $SUCCESS
+          }]" $FILE > tmp.json && mv tmp.json $FILE
+
+      - name: Publicar no GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
