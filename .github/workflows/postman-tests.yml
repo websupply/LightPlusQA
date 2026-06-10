@@ -214,12 +214,16 @@ jobs:
               jq '{
                 summary: .run.stats,
                 failures: .run.failures,
-                executions: [.run.executions[] | {
-                  name: .item.name,
-                  passed: ([.assertions[] | select(.error == null)] | length),
-                  failed: ([.assertions[] | select(.error != null)] | length),
-                  assertions: [.assertions[] | {name: .assertion, passed: (.error == null), error: .error.message}]
-                }]
+                executions: [
+                  .run.executions[]
+                  | select(.assertions != null and (.assertions | length) > 0)
+                  | {
+                      name: .item.name,
+                      passed: ([.assertions[] | select(.error == null)] | length),
+                      failed: ([.assertions[] | select(.error != null)] | length),
+                      assertions: [.assertions[] | {name: .assertion, passed: (.error == null), error: .error.message}]
+                    }
+                ]
               }' "$file" > "$out" 2>/dev/null || echo '{}' > "$out"
             else
               echo '{}' > "$out"
