@@ -215,8 +215,9 @@ jobs:
                 summary: .run.stats,
                 failures: .run.failures,
                 executions: [
-                  .run.executions[]
-                  | select(.assertions != null and (.assertions | length) > 0)
+                  .run.executions
+                  | map(select(.assertions != null and (.assertions | length) > 0))
+                  | unique_by(.id)[]
                   | {
                       name: .item.name,
                       passed: ([.assertions[] | select(.error == null)] | length),
