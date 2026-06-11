@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>API Quality Dashboard</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0f172a;
+      --surface:  #1e293b;
+      --border:   #334155;
+      --text:     #e2e8f0;
+      --muted:    #64748b;
+      --green:    #22c55e;
+      --red:      #ef4444;
+      --blue:     #38bdf8;
+      --orange:   #f97316;
+      --purple:   #a855f7;
+    }
+
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; }
+
+    /* ---- top bar ---- */
+    .topbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .dot  { width: 9px; height: 9px; border-radius: 50%; background: var(--green); }
+    .run-badge {
+      font-size: 11px;
+      background: #14532d33;
+      color: var(--green);
+      border: 1px solid #22c55e44;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .last-run { font-size: 11px; color: var(--muted); }
+
+    /* ---- layout ---- */
+    .main { padding: 24px 28px; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: .09em; text-transform: uppercase; margin-bottom: 12px; }
+
+    /* ---- summary cards ---- */
+    .summary { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 28px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+    .card-label { font-size: 11px; color: var(--muted); font-weight: 500; margin-bottom: 6px; }
+    .card-val  { font-size: 28px; font-weight: 700; }
+    .card-sub  { font-size: 10px; color: var(--muted); margin-top: 4px; }
+    .pbar { height: 4px; background: #0f172a; border-radius: 2px; overflow: hidden; margin-top: 8px; }
+    .pbar-fill { height: 100%; border-radius: 2px; }
+
+    /* ---- two-col row ---- */
+    .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .panel-title { font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 16px; }
+
+    /* ---- phases ---- */
+    .phase-row { display: grid; grid-template-columns: 100px 1fr 60px 60px; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .phase-name { font-size: 12px; color: #94a3b8; }
+    .phase-bg { height: 7px; background: #0f172a; border-radius: 4px; overflow: hidden; }
+    .phase-fill { height: 100%; border-radius: 4px; transition: width .4s; }
+    .phase-pct { font-size: 12px; font-weight: 600; }
+    .phase-cnt { font-size: 11px; color: var(--muted); }
+
+    /* ---- history table ---- */
+    .history-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+    table { width: 100%; border-collapse: collapse; }
+    thead th { font-size: 10px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; padding: 0 10px 10px; text-align: left; }
+    tbody td { font-size: 12px; padding: 9px 10px; border-top: 1px solid #1e293b; color: #cbd5e1; vertical-align: middle; }
+    tbody tr:hover td { background: #ffffff08; cursor: pointer; }
+    .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 20px; }
+    .ok   { background: #14532d33; color: var(--green); border: 1px solid #22c55e44; }
+    .fail { background: #450a0a33; color: var(--red);   border: 1px solid #ef444444; }
+    .phase-icon { font-size: 13px; }
+    .link-btn { font-size: 11px; color: var(--blue); cursor: pointer; text-decoration: none; background: none; border: none; padding: 0; }
+    .link-btn:hover { text-decoration: underline; }
+
+    /* ---- detail panel ---- */
+    #detail-panel { display: none; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+    .detail-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .detail-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .tab-btn {
+      font-size: 12px; padding: 5px 14px; border-radius: 20px;
+      border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer;
+    }
+    .tab-btn.active { border-color: var(--blue); color: var(--blue); background: #0c1a2a; }
+    .test-list { max-height: 320px; overflow-y: auto; }
+    .test-row { display: flex; align-items: flex-start; gap: 8px; padding: 8px 0; border-bottom: 1px solid #1e293b; }
+    .test-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+    .test-name { font-size: 12px; color: #cbd5e1; }
+    .test-err  { font-size: 11px; color: var(--red); margin-top: 2px; }
+    .test-pass { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .close-btn { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 16px; }
+    .close-btn:hover { color: var(--text); }
+    .empty-msg { font-size: 12px; color: var(--muted); padding: 20px 0; text-align: center; }
+
+    /* ---- chart container ---- */
+
+    /* ---- colors ---- */
+    .c-green  { color: var(--green); }
+    .c-red    { color: var(--red); }
+    .c-blue   { color: var(--blue); }
+    .c-orange { color: var(--orange); }
+    .c-purple { color: var(--purple); }
+    .c-muted  { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo"><div class="dot"></div>API Quality Dashboard · Pedido Catálogo</div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <span class="last-run" id="last-run">—</span>
+    <span class="run-badge" id="run-badge">carregando…</span>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- Summary cards -->
+  <div class="section-label" style="margin-top:8px">Resumo da última execução</div>
+  <div class="summary">
+    <div class="card">
+      <div class="card-label">PASSOU</div>
+      <div class="card-val c-green" id="s-passed">—</div>
+      <div class="pbar"><div class="pbar-fill" id="pbar-p" style="background:var(--green)"></div></div>
+    </div>
+    <div class="card">
+      <div class="card-label">FALHOU</div>
+      <div class="card-val c-red" id="s-failed">—</div>
+      <div class="pbar"><div class="pbar-fill" id="pbar-f" style="background:var(--red)"></div></div>
+    </div>
+    <div class="card">
+      <div class="card-label">TOTAL</div>
+      <div class="card-val c-blue" id="s-total">—</div>
+      <div class="card-sub">assertions</div>
+    </div>
+    <div class="card">
+      <div class="card-label">TAXA DE SUCESSO</div>
+      <div class="card-val c-orange" id="s-success">—</div>
+      <div class="card-sub" id="s-trend">—</div>
+    </div>
+  </div>
+
+  <!-- Phases -->
+  <div style="margin-bottom:24px">
+    <div class="panel">
+      <div class="panel-title">Por fase de teste</div>
+      <div id="phases-wrap"></div>
+    </div>
+  </div>
+
+  <!-- Detail panel (hidden by default) -->
+  <div id="detail-panel">
+    <div class="detail-header">
+      <div>
+        <div class="panel-title" id="detail-title">Detalhes da execução</div>
+        <div style="font-size:11px;color:var(--muted)" id="detail-date"></div>
+      </div>
+      <button class="close-btn" onclick="closeDetail()">✕</button>
+    </div>
+    <div class="detail-tabs" id="detail-tabs"></div>
+    <div class="test-list" id="detail-list"></div>
+  </div>
+
+  <!-- History table -->
+  <div class="section-label">Histórico de execuções</div>
+  <div class="history-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Data / Hora</th>
+          <th>Status</th>
+          <th>Smoke</th>
+          <th>Validation</th>
+          <th>Business</th>
+          <th>Alteração</th>
+          <th>Total</th>
+          <th>Sucesso</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="history-body"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+const PHASE_COLORS = {
+  smoke:      '#22c55e',
+  validation: '#38bdf8',
+  business:   '#f97316',
+  alteracao:  '#a855f7'
+};
+const PHASE_LABELS = {
+  smoke: 'Smoke', validation: 'Validation', business: 'Business Rule', alteracao: 'Alteração'
+};
+
+let historyData = [];
+let detailCache = {};
+let activeRun = null;
+let activePhase = 'smoke';
+
+async function loadHistory() {
+  const r = await fetch('history.json');
+  historyData = await r.json();
+  if (!historyData.length) return;
+  renderSummary();
+  renderPhases();
+  renderTable();
+}
+
+function renderSummary() {
+  const last = historyData[historyData.length - 1];
+  document.getElementById('s-passed').textContent  = last.passed;
+  document.getElementById('s-failed').textContent  = last.failed;
+  document.getElementById('s-total').textContent   = last.total;
+  document.getElementById('s-success').textContent = last.success + '%';
+  document.getElementById('last-run').textContent  = 'Última: ' + fmt(last.date);
+  document.getElementById('run-badge').textContent = last.failed == 0 ? '● OK' : '● FALHA';
+  document.getElementById('run-badge').style.color = last.failed == 0 ? '#22c55e' : '#ef4444';
+
+  const pct = parseFloat(last.success);
+  document.getElementById('pbar-p').style.width = pct + '%';
+  document.getElementById('pbar-f').style.width = (100 - pct) + '%';
+
+  if (historyData.length > 1) {
+    const prev = historyData[historyData.length - 2];
+    const diff = parseFloat(last.success) - parseFloat(prev.success);
+    const el = document.getElementById('s-trend');
+    el.textContent = diff >= 0 ? '↑ +' + diff.toFixed(2) + '% vs anterior' : '↓ ' + diff.toFixed(2) + '% vs anterior';
+    el.style.color = diff >= 0 ? '#22c55e' : '#ef4444';
+  }
+}
+
+function renderPhases() {
+  const last = historyData[historyData.length - 1];
+  const phases = last.phases || {};
+  const wrap = document.getElementById('phases-wrap');
+  wrap.innerHTML = '';
+  ['smoke','validation','business','alteracao'].forEach(k => {
+    const ph = phases[k] || {};
+    const pct = parseFloat(ph.success || 0);
+    const color = PHASE_COLORS[k];
+    wrap.innerHTML += `
+      <div class="phase-row">
+        <div class="phase-name">${PHASE_LABELS[k]}</div>
+        <div class="phase-bg"><div class="phase-fill" style="width:${pct}%;background:${color}"></div></div>
+        <div class="phase-pct" style="color:${color}">${pct.toFixed(0)}%</div>
+        <div class="phase-cnt">${ph.passed||0}/${ph.total||0}</div>
+      </div>`;
+  });
+}
+
+
+function renderTable() {
+  const tbody = document.getElementById('history-body');
+  tbody.innerHTML = '';
+  [...historyData].reverse().forEach(run => {
+    const ok = parseInt(run.failed) === 0;
+    const ph = run.phases || {};
+    const phIcon = k => {
+      const p = ph[k] || {};
+      return parseInt(p.failed||0) === 0
+        ? `<span class="c-green">✔</span>`
+        : `<span class="c-red">✖</span>`;
+    };
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${fmt(run.date)}</td>
+      <td><span class="badge ${ok ? 'ok' : 'fail'}">${ok ? '✔ OK' : '✖ FALHA'}</span></td>
+      <td>${phIcon('smoke')}</td>
+      <td>${phIcon('validation')}</td>
+      <td>${phIcon('business')}</td>
+      <td>${phIcon('alteracao')}</td>
+      <td>${run.total}</td>
+      <td style="color:${ok?'#22c55e':'#ef4444'}">${run.success}%</td>
+      <td><button class="link-btn" onclick="openDetail('${run.folder}','${run.date}')">ver →</button></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+async function openDetail(folder, date) {
+  activeRun = folder;
+  activePhase = 'smoke';
+  document.getElementById('detail-panel').style.display = 'block';
+  document.getElementById('detail-title').textContent = 'Detalhes da execução';
+  document.getElementById('detail-date').textContent = fmt(date);
+  renderTabs();
+  await loadPhaseDetail(activePhase);
+  document.getElementById('detail-panel').scrollIntoView({ behavior: 'smooth' });
+}
+
+function closeDetail() {
+  document.getElementById('detail-panel').style.display = 'none';
+  activeRun = null;
+}
+
+function renderTabs() {
+  const wrap = document.getElementById('detail-tabs');
+  wrap.innerHTML = ['smoke','validation','business','alteracao'].map(k =>
+    `<button class="tab-btn ${k === activePhase ? 'active' : ''}" onclick="switchTab('${k}')">${PHASE_LABELS[k]}</button>`
+  ).join('');
+}
+
+async function switchTab(phase) {
+  activePhase = phase;
+  renderTabs();
+  await loadPhaseDetail(phase);
+}
+
+async function loadPhaseDetail(phase) {
+  const key = `${activeRun}/${phase}`;
+  if (!detailCache[key]) {
+    try {
+      const r = await fetch(`${activeRun}/${phase}.json`);
+      detailCache[key] = await r.json();
+    } catch { detailCache[key] = null; }
+  }
+  renderDetailList(detailCache[key]);
+}
+
+function renderDetailList(data) {
+  const list = document.getElementById('detail-list');
+  if (!data || !data.executions || !data.executions.length) {
+    list.innerHTML = '<div class="empty-msg">Nenhum dado disponível para esta fase.</div>';
+    return;
+  }
+  let html = '';
+  data.executions.forEach(ex => {
+    const ok = ex.failed === 0;
+    html += `<div class="test-row">
+      <div class="test-dot" style="background:${ok?'#22c55e':'#ef4444'}"></div>
+      <div>
+        <div class="test-name">${ex.name}</div>
+        <div class="${ok?'test-pass':'test-err'}">${ok ? ex.passed + ' assertions passaram' : ex.failed + ' falha(s) · ' + ex.passed + ' passaram'}</div>
+        ${!ok && ex.assertions ? ex.assertions.filter(a=>!a.passed).map(a=>`<div class="test-err" style="margin-top:2px">↳ ${a.name}: ${a.error||''}</div>`).join('') : ''}
+      </div>
+    </div>`;
+  });
+  list.innerHTML = html;
+}
+
+function fmt(d) {
+  if (!d) return '—';
+  // Formato gerado: DD-MM-YYYY
+  return d.split('_')[0];
+}
+
+loadHistory();
+</script>
+
+</body>
+</html>

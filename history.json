@@ -1,0 +1,36 @@
+[
+  {
+    "date": "11-06-2026",
+    "folder": "11-06-2026",
+    "failed": 1,
+    "passed": 494,
+    "total": 495,
+    "success": "99.80",
+    "phases": {
+      "smoke": {
+        "passed": 20,
+        "failed": 0,
+        "total": 20,
+        "success": "100.00"
+      },
+      "validation": {
+        "passed": 286,
+        "failed": 0,
+        "total": 286,
+        "success": "100.00"
+      },
+      "business": {
+        "passed": 129,
+        "failed": 1,
+        "total": 130,
+        "success": "99.23"
+      },
+      "alteracao": {
+        "passed": 59,
+        "failed": 0,
+        "total": 59,
+        "success": "100.00"
+      }
+    }
+  }
+]
