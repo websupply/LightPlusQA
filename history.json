@@ -1,11 +1,11 @@
 [
   {
     "date": "11-06-2026",
-    "folder": "11-06-2026",
-    "failed": 1,
-    "passed": 494,
+    "folder": "11-06-2026_19-22-26",
+    "failed": 5,
+    "passed": 490,
     "total": 495,
-    "success": "99.80",
+    "success": "98.99",
     "phases": {
       "smoke": {
         "passed": 20,
@@ -14,84 +14,84 @@
         "success": "100.00"
       },
       "validation": {
-        "passed": 286,
-        "failed": 0,
+        "passed": 285,
+        "failed": 1,
         "total": 286,
+        "success": "99.65"
+      },
+      "business": {
+        "passed": 126,
+        "failed": 4,
+        "total": 130,
+        "success": "96.92"
+      },
+      "alteracao": {
+        "passed": 59,
+        "failed": 0,
+        "total": 59,
         "success": "100.00"
+      }
+    }
+  },
+  {
+    "date": "11-06-2026",
+    "folder": "11-06-2026_19-51-16",
+    "failed": 5,
+    "passed": 490,
+    "total": 495,
+    "success": "98.99",
+    "phases": {
+      "smoke": {
+        "passed": 20,
+        "failed": 0,
+        "total": 20,
+        "success": "100.00"
+      },
+      "validation": {
+        "passed": 285,
+        "failed": 1,
+        "total": 286,
+        "success": "99.65"
+      },
+      "business": {
+        "passed": 126,
+        "failed": 4,
+        "total": 130,
+        "success": "96.92"
+      },
+      "alteracao": {
+        "passed": 59,
+        "failed": 0,
+        "total": 59,
+        "success": "100.00"
+      }
+    }
+  },
+  {
+    "date": "11-06-2026",
+    "folder": "11-06-2026_19-59-47",
+    "failed": 2,
+    "passed": 493,
+    "total": 495,
+    "success": "99.60",
+    "phases": {
+      "smoke": {
+        "passed": 20,
+        "failed": 0,
+        "total": 20,
+        "success": "100.00"
+      },
+      "validation": {
+        "passed": 285,
+        "failed": 1,
+        "total": 286,
+        "success": "99.65"
       },
       "business": {
         "passed": 129,
         "failed": 1,
         "total": 130,
         "success": "99.23"
-      },
-      "alteracao": {
-        "passed": 59,
-        "failed": 0,
-        "total": 59,
-        "success": "100.00"
-      }
-    }
-  },
-  {
-    "date": "11-06-2026",
-    "folder": "11-06-2026",
-    "failed": 0,
-    "passed": 495,
-    "total": 495,
-    "success": "100.00",
-    "phases": {
-      "smoke": {
-        "passed": 20,
-        "failed": 0,
-        "total": 20,
-        "success": "100.00"
-      },
-      "validation": {
-        "passed": 286,
-        "failed": 0,
-        "total": 286,
-        "success": "100.00"
-      },
-      "business": {
-        "passed": 130,
-        "failed": 0,
-        "total": 130,
-        "success": "100.00"
-      },
-      "alteracao": {
-        "passed": 59,
-        "failed": 0,
-        "total": 59,
-        "success": "100.00"
-      }
-    }
-  },
-  {
-    "date": "11-06-2026",
-    "folder": "11-06-2026",
-    "failed": 0,
-    "passed": 495,
-    "total": 495,
-    "success": "100.00",
-    "phases": {
-      "smoke": {
-        "passed": 20,
-        "failed": 0,
-        "total": 20,
-        "success": "100.00"
-      },
-      "validation": {
-        "passed": 286,
-        "failed": 0,
-        "total": 286,
-        "success": "100.00"
-      },
-      "business": {
-        "passed": 130,
-        "failed": 0,
-        "total": 130,
-        "success": "100.00"
       },
       "alteracao": {
         "passed": 59,
