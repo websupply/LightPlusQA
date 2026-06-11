@@ -200,7 +200,7 @@ jobs:
           echo "TOTAL:      $PASSED/$TOTAL ($SUCCESS%)"
 
       - name: Gerar timestamp
-        run: echo "DATE=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
+        run: echo "DATE=$(date +'%d-%m-%Y_%H-%M-%S')" >> $GITHUB_ENV
 
       - name: Criar estrutura de pastas
         run: mkdir -p public/$DATE
@@ -235,6 +235,33 @@ jobs:
           build_detail reports/validation-report.json public/$DATE/validation.json
           build_detail reports/business-report.json   public/$DATE/business.json
           build_detail reports/alteracao-report.json  public/$DATE/alteracao.json
+
+      - name: Recuperar histórico do gh-pages
+        run: |
+          mkdir -p public
+          # Baixa o history.json existente do gh-pages para preservar histórico
+          HTTP=$(curl -s -o public/history.json -w "%{http_code}" \
+            "https://raw.githubusercontent.com/${{ github.repository }}/gh-pages/history.json")
+          if [ "$HTTP" != "200" ]; then
+            echo "history.json não encontrado no gh-pages, iniciando novo."
+            echo "[]" > public/history.json
+          else
+            echo "Histórico recuperado: $(jq length public/history.json) entradas."
+          fi
+
+      - name: Recuperar pastas de detalhes anteriores do gh-pages
+        run: |
+          # Baixa a lista de pastas já publicadas para manter os detalhes antigos acessíveis
+          git fetch origin gh-pages 2>/dev/null || true
+          if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+            git checkout origin/gh-pages -- . 2>/dev/null || true
+            # Restaura apenas as pastas de datas anteriores (não sobrescreve nada do main)
+            ls -d [0-9]*-[0-9]*-[0-9]*_* 2>/dev/null | while read dir; do
+              mkdir -p public/$dir
+              cp -r $dir/. public/$dir/ 2>/dev/null || true
+            done
+            git checkout HEAD -- . 2>/dev/null || true
+          fi
 
       - name: Atualizar history.json
         run: |
@@ -611,7 +638,11 @@ jobs:
 
           function fmt(d) {
             if (!d) return '—';
-            return d.replace('_', ' ').replace(/_/g, ':');
+            // Formato gerado: DD-MM-YYYY_HH-MM-SS → DD/MM/YYYY HH:MM:SS
+            const [datePart, timePart] = d.split('_');
+            if (!timePart) return d;
+            const timeFormatted = timePart.replace(/-/g, ':');
+            return datePart + ' ' + timeFormatted;
           }
 
           loadHistory();
