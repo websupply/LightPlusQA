@@ -200,7 +200,7 @@ jobs:
           echo "TOTAL:      $PASSED/$TOTAL ($SUCCESS%)"
 
       - name: Gerar timestamp
-        run: echo "DATE=$(date +'%d-%m-%Y_%H-%M-%S')" >> $GITHUB_ENV
+        run: echo "DATE=$(TZ=America/Sao_Paulo date +'%d-%m-%Y')" >> $GITHUB_ENV
 
       - name: Criar estrutura de pastas
         run: mkdir -p public/$DATE
@@ -638,11 +638,8 @@ jobs:
 
           function fmt(d) {
             if (!d) return '—';
-            // Formato gerado: DD-MM-YYYY_HH-MM-SS → DD/MM/YYYY HH:MM:SS
-            const [datePart, timePart] = d.split('_');
-            if (!timePart) return d;
-            const timeFormatted = timePart.replace(/-/g, ':');
-            return datePart + ' ' + timeFormatted;
+            // Formato gerado: DD-MM-YYYY
+            return d.split('_')[0];
           }
 
           loadHistory();
