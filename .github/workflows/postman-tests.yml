@@ -203,10 +203,12 @@ jobs:
           echo "TOTAL:      $PASSED/$TOTAL ($SUCCESS%)"
 
       - name: Gerar timestamp
-        run: echo "DATE=$(TZ=America/Sao_Paulo date +'%d-%m-%Y')" >> $GITHUB_ENV
+        run: |
+          echo "DATE=$(TZ=America/Sao_Paulo date +'%d-%m-%Y')" >> $GITHUB_ENV
+          echo "FOLDER=$(TZ=America/Sao_Paulo date +'%d-%m-%Y_%H-%M-%S')" >> $GITHUB_ENV
 
       - name: Criar estrutura de pastas
-        run: mkdir -p public/$DATE
+        run: mkdir -p public/$FOLDER
 
       - name: Gerar details.json por fase
         run: |
@@ -234,10 +236,10 @@ jobs:
             fi
           }
 
-          build_detail reports/smoke-report.json      public/$DATE/smoke.json
-          build_detail reports/validation-report.json public/$DATE/validation.json
-          build_detail reports/business-report.json   public/$DATE/business.json
-          build_detail reports/alteracao-report.json  public/$DATE/alteracao.json
+          build_detail reports/smoke-report.json      public/$FOLDER/smoke.json
+          build_detail reports/validation-report.json public/$FOLDER/validation.json
+          build_detail reports/business-report.json   public/$FOLDER/business.json
+          build_detail reports/alteracao-report.json  public/$FOLDER/alteracao.json
 
       - name: Recuperar histórico do gh-pages
         run: |
@@ -273,7 +275,7 @@ jobs:
 
           jq ". += [{
             \"date\": \"$DATE\",
-            \"folder\": \"$DATE\",
+            \"folder\": \"$FOLDER\",
             \"failed\": $FAILED,
             \"passed\": $PASSED,
             \"total\": $TOTAL,
@@ -565,7 +567,7 @@ jobs:
               };
               const tr = document.createElement('tr');
               tr.innerHTML = `
-                <td>${fmt(run.date)}</td>
+                <td>${fmtRow(run.date, run.folder)}</td>
                 <td><span class="badge ${ok ? 'ok' : 'fail'}">${ok ? '✔ OK' : '✖ FALHA'}</span></td>
                 <td>${phIcon('smoke')}</td>
                 <td>${phIcon('validation')}</td>
@@ -641,8 +643,19 @@ jobs:
 
           function fmt(d) {
             if (!d) return '—';
-            // Formato gerado: DD-MM-YYYY
-            return d.split('_')[0];
+            // d pode ser o date (DD-MM-YYYY) ou o folder (DD-MM-YYYY_HH-MM-SS)
+            const [datePart, timePart] = d.split('_');
+            if (!timePart) return datePart;
+            const hora = timePart.replace(/-/g, ':');
+            return datePart + ' ' + hora;
+          }
+
+          function fmtRow(date, folder) {
+            // Exibe a data do campo date e a hora do campo folder
+            const datePart = date.split('_')[0];
+            const timePart = folder.split('_')[1];
+            if (!timePart) return datePart;
+            return datePart + ' ' + timePart.replace(/-/g, ':');
           }
 
           loadHistory();
@@ -655,7 +668,7 @@ jobs:
       - name: Verificar arquivos
         run: |
           echo "=== public/ ===" && ls -la public/
-          echo "=== public/$DATE ===" && ls -la public/$DATE/ || true
+          echo "=== public/$FOLDER ===" && ls -la public/$FOLDER/ || true
 
       - name: Publicar no GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
