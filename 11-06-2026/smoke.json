@@ -49,7 +49,7 @@
   "failures": [],
   "executions": [
     {
-      "name": "@PED_CAT_SERVIÇO @smoke - Criacao valida simples",
+      "name": "@PED_CAT_MATERIAL @smoke - Criacao valida simples",
       "passed": 10,
       "failed": 0,
       "assertions": [
@@ -106,7 +106,7 @@
       ]
     },
     {
-      "name": "@PED_CAT_MATERIAL @smoke - Criacao valida simples",
+      "name": "@PED_CAT_SERVIÇO @smoke - Criacao valida simples",
       "passed": 10,
       "failed": 0,
       "assertions": [
