@@ -304,5 +304,39 @@
         "success": "95.12"
       }
     }
+  },
+  {
+    "date": "12-06-2026",
+    "folder": "12-06-2026_10-59-50",
+    "failed": 3,
+    "passed": 465,
+    "total": 468,
+    "success": "99.36",
+    "phases": {
+      "smoke": {
+        "passed": 10,
+        "failed": 1,
+        "total": 11,
+        "success": "90.91"
+      },
+      "validation": {
+        "passed": 286,
+        "failed": 0,
+        "total": 286,
+        "success": "100.00"
+      },
+      "business": {
+        "passed": 130,
+        "failed": 0,
+        "total": 130,
+        "success": "100.00"
+      },
+      "alteracao": {
+        "passed": 39,
+        "failed": 2,
+        "total": 41,
+        "success": "95.12"
+      }
+    }
   }
 ]
