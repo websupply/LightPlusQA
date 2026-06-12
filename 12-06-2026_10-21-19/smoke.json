@@ -1,0 +1,857 @@
+{
+  "summary": {
+    "iterations": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "items": {
+      "total": 2,
+      "pending": 0,
+      "failed": 0
+    },
+    "scripts": {
+      "total": 11,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequests": {
+      "total": 2,
+      "pending": 0,
+      "failed": 0
+    },
+    "requests": {
+      "total": 4,
+      "pending": 0,
+      "failed": 0
+    },
+    "tests": {
+      "total": 2,
+      "pending": 0,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 11,
+      "pending": 0,
+      "failed": 1
+    },
+    "testScripts": {
+      "total": 6,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequestScripts": {
+      "total": 5,
+      "pending": 0,
+      "failed": 0
+    }
+  },
+  "failures": [
+    {
+      "error": {
+        "name": "AssertionError",
+        "index": 0,
+        "test": "Status HTTP deve ser 200",
+        "message": "expected response to have status code 200 but got 400",
+        "stack": "AssertionError: expected response to have status code 200 but got 400\n   at Object.eval sandbox-script.js:1:1)",
+        "checksum": "efa819747e2415cb5351706afd1b14e0",
+        "id": "122e353a-a0d6-435e-8d84-ab4949e0d6b1",
+        "timestamp": 1781270362039,
+        "stacktrace": [
+          {
+            "fileName": "sandbox-script.js",
+            "lineNumber": 1,
+            "functionName": "Object.eval",
+            "typeName": "Object",
+            "methodName": "eval",
+            "columnNumber": 1,
+            "native": false
+          }
+        ]
+      },
+      "at": "assertion:0 in test-script",
+      "source": {
+        "id": "363ae69d-dee2-4dc3-ac21-a35fb852ab06",
+        "name": "@PED_CAT_SERVIÇO @smoke - Criacao valida simples",
+        "request": {
+          "url": {
+            "path": [
+              "v1.0",
+              "pedidocatalogo",
+              "gerar_pedido_catalogo"
+            ],
+            "host": [
+              "{{endpoint_base}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "POST",
+          "body": {
+            "mode": "raw",
+            "raw": "{\r\n    \"numeroPedidoLight\": \"LP-20917466\",\r\n    \"numeroPedidoWebsupply\": \"\",\r\n    \"codigoUsuarioCriador\": \"FABAUM\",\r\n    \"descricaoResumida\": \"TESTE\",\r\n    \"descricaoCompleta\": \"teste \",\r\n    \"codigoTipoPedido\": \"35\",\r\n    \"codigoTipoProcesso\": \"20\",\r\n    \"codigoEmpresa\": \"LI10\",\r\n    \"codigoGrupoCompras\": \"PDW\",\r\n    \"codigoContrato\": \"4600009762\",\r\n    \"observacao\": \"\",\r\n    \"justificativa\": \"\",\r\n    \"observacaoContrato\": \"\",\r\n    \"arquivoAnexo\": \"\",\r\n    \"rateios\": [\r\n        {\r\n            \"tipoCalculo\": \"P\",\r\n            \"valor\": \"100\",\r\n            \"codigoCentroCusto\": \"5005001\"\r\n        }\r\n    ],\r\n    \"itens\": [\r\n        {\r\n            \"numeroSequencial\": \"1\",\r\n            \"numeroItemContrato\": \"1\",\r\n            \"quantidade\": \"1\",\r\n            \"codigoTipoClassificacaoContabil\": \"K\",\r\n            \"codigoClassificacaoContabil\": \"5005001\",\r\n            \"codigoCentroLogistico\": \"08\",\r\n            \"siglaOrgao\": \"As\",\r\n            \"dataRemessa\": \"2026-06-30\",\r\n            \"codigoLocalEntrega\": \"369288\",\r\n            \"complemento\": \"\",\r\n            \"codigoContaContabil\": \"6130214291\",\r\n            \"compraConsumo\": \"N\",\r\n            \"arquivoAnexo\": \"\",\r\n            \"ativo\": \"S\",\r\n            \"subitens\": [\r\n                {\r\n                    \"numeroSequencial\": \"1\",\r\n                    \"numeroItemContrato\": \"10\",\r\n                    \"quantidade\": \"2\",\r\n                    \"ativo\": \"S\"\r\n                }\r\n            ],\r\n            \"parcelas\": []\r\n        }\r\n    ]\r\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        },
+        "response": [
+          {
+            "_": {
+              "postman_previewlanguage": null
+            },
+            "id": "8763bed2-997c-471d-8aa1-4fbefa166382",
+            "name": "@PED_CAT @smoke - Criacao valida simples",
+            "originalRequest": {
+              "url": {
+                "path": [
+                  "v1.0",
+                  "pedidocatalogo",
+                  "gerar_pedido_catalogo"
+                ],
+                "host": [
+                  "{{endpoint_base}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"numeroPedidoLight\": \"LP-20917466\",\r\n    \"numeroPedidoWebsupply\": \"\",\r\n    \"codigoUsuarioCriador\": \"Fabaum\",\r\n    \"descricaoResumida\": \"Pedido catálogo consumo 20917466\",\r\n    \"descricaoCompleta\": \"Pedido de catálogo referente ao processo Websupply 20917466. Solicitação de materiais de consumo conforme contrato vigente para atendimento das necessidades operacionais do departamento.\",\r\n    \"codigoTipoPedido\": \"35\",\r\n    \"codigoTipoProcesso\": \"1\",\r\n    \"codigoEmpresa\": \"LI10\",\r\n    \"codigoGrupoCompras\": \"PDW01\",\r\n    \"codigoContrato\": \"4600009739\",\r\n    \"observacao\": \"Pedido referente ao processo 20917466 - entrega conforme combinado\",\r\n    \"justificativa\": \"Necessidade operacional do departamento - reposição de estoque\",\r\n    \"observacaoContrato\": \"\",\r\n    \"arquivoAnexo\": \"\",\r\n    \"pedidoAprovado\": \"N\",\r\n    \"matriculaAprovadorPedido\": \"\",\r\n    \"rateios\": [\r\n        {\r\n            \"tipoCalculo\": \"P\",\r\n            \"valor\": \"100\",\r\n            \"codigoCentroCusto\": \"5005005\"\r\n        }\r\n    ],\r\n    \"itens\": [\r\n        {\r\n            \"numeroSequencial\": \"1\",\r\n            \"numeroItemContrato\": \"2\",\r\n            \"quantidade\": \"50\",\r\n            \"codigoTipoClassificacaoContabil\": \"K\",\r\n            \"codigoClassificacaoContabil\": \"02001\",\r\n            \"codigoCentroLogistico\": \"08\",\r\n            \"siglaOrgao\": \"SUPL\",\r\n            \"dataRemessa\": \"2026-05-20\",\r\n            \"codigoLocalEntrega\": \"369288\",\r\n            \"complemento\": \"\",\r\n            \"codigoContaContabil\": \"6130016800\",\r\n            \"compraConsumo\": \"S\",\r\n            \"arquivoAnexo\": \"\",\r\n            \"ativo\": \"S\",\r\n            \"criarFolhaRegistro\": \"\",\r\n            \"periodoInicio\": \"\",\r\n            \"periodoFinal\": \"\",\r\n            \"numeroExterno\": \"\",\r\n            \"localPrestacao\": \"\",\r\n            \"textoBreve\": \"\",\r\n            \"encarregadoInterno\": \"\",\r\n            \"encarregadoExterno\": \"\",\r\n            \"descricao\": \"\",\r\n            \"statusFolha\": \"\",\r\n            \"subitens\": [],\r\n            \"parcelas\": [\r\n                {\r\n                    \"numeroParcela\": \"1\",\r\n                    \"quantidade\": \"25\",\r\n                    \"dataEntrega\": \"2026-05-10\"\r\n                },\r\n                {\r\n                    \"numeroParcela\": \"2\",\r\n                    \"quantidade\": \"25\",\r\n                    \"dataEntrega\": \"2026-05-18\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "status": "OK",
+            "code": 200,
+            "header": [
+              {
+                "key": "Date",
+                "value": "Fri, 08 May 2026 14:21:42 GMT"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json; charset=utf-8"
+              },
+              {
+                "key": "Transfer-Encoding",
+                "value": "chunked"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "Server",
+                "value": "cloudflare"
+              },
+              {
+                "key": "api-supported-versions",
+                "value": "1.0"
+              },
+              {
+                "key": "robots",
+                "value": "noindex, nofollow"
+              },
+              {
+                "key": "X-Robots",
+                "value": "otherbot: noindex, nofollow"
+              },
+              {
+                "key": "X-Robots-Tag",
+                "value": "googlebot: noindex, nofollow"
+              },
+              {
+                "key": "x-xss-protection",
+                "value": "1; mode=block"
+              },
+              {
+                "key": "x-frame-options",
+                "value": "SAMEORIGIN"
+              },
+              {
+                "key": "Content-Security-Policy",
+                "value": "object-src 'self'; frame-ancestors 'self' *.websupply.com.br *.remaza.com.br; script-src 'self' 'unsafe-inline' 'unsafe-eval' apis.google.com *.google.com *.gstatic.com code.jquery.com unpkg.com *.fontawesome.com *.aspnetcdn.com *.yahooapis.com cdn.jsdelivr.net cdnjs.cloudflare.com www.googletagmanager.com *.bootstrapcdn.com cdn.datatables.net connect.facebook.net *.angularjs.org ajax.googleapis.com *.google-analytics.com *.googleadservices.com *.doubleclick.net *.weatherwidget.org cdn.tailwindcss.com;"
+              },
+              {
+                "key": "Strict-Transport-Security",
+                "value": "max-age=31536000; includeSubDomains; preload"
+              },
+              {
+                "key": "x-content-type-options",
+                "value": "nosniff"
+              },
+              {
+                "key": "Nel",
+                "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+              },
+              {
+                "key": "cf-cache-status",
+                "value": "DYNAMIC"
+              },
+              {
+                "key": "referrer-policy",
+                "value": "same-origin"
+              },
+              {
+                "key": "Report-To",
+                "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=s10fAfbFMdqgoSpixzh35J8ibZLGhOnGPzfOImzx%2BomceC%2FCep25OqVl38bEdfqtQVnoQAKziiB4DUjzQqQrV8wP4oL1GUImSIN08zGb2shJm%2BJMUmF6mb5yqlJTjw1As1LPO9YOxJ8%2BuuF6aaIxp4IO\"}]}"
+              },
+              {
+                "key": "expect-ct",
+                "value": "max-age=86400, enforce"
+              },
+              {
+                "key": "Content-Encoding",
+                "value": "br"
+              },
+              {
+                "key": "CF-RAY",
+                "value": "9f891cb3084a3149-GIG"
+              }
+            ],
+            "body": "{\n    \"Mensagem\": {\n        \"Titulo\": \"Sucesso\",\n        \"Texto\": \"Pedido de Catálogo Gerado\",\n        \"Tipo\": \"success\"\n    },\n    \"Requisicao\": {\n        \"Retorno\": {\n            \"Mensagem\": \"Pedido de Catálogo Processado com Sucesso\",\n            \"NumeroPedidoWebsupply\": \"20918412\",\n            \"NumeroPedidoLight\": \"LP-20917466\",\n            \"GuidProcessamento\": \"9b0c088b-bba8-4eba-9f90-56e091b91d88\"\n        },\n        \"Status\": 200,\n        \"Link_Referencia\": \"https://api.homologacao.websupply.com.br/LIGHT_PLUS/v1.0/PedidoCatalogo/gerar_pedido_catalogo\"\n    }\n}",
+            "cookie": []
+          }
+        ],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "7b523d94-faf9-418a-85bd-f74459355669",
+              "type": "text/javascript",
+              "packages": {},
+              "exec": [
+                "// @PED_CAT @smoke - Criacao valida simples\r",
+                "// Valida contrato completo de retorno da API\r",
+                "\r",
+                "pm.test(\"Status HTTP deve ser 200\", function () {\r",
+                "    pm.response.to.have.status(200);\r",
+                "});\r",
+                "\r",
+                "if (pm.response && pm.response.code === 200){\r",
+                "\r",
+                "    const json = pm.response.json();\r",
+                "\r",
+                "    // 1️⃣ Estrutura principal\r",
+                "    pm.test(\"Envelope Mensagem existe\", function () {\r",
+                "        pm.expect(json).to.have.property(\"Mensagem\");\r",
+                "    });\r",
+                "\r",
+                "    pm.test(\"Envelope Requisicao existe\", function () {\r",
+                "        pm.expect(json).to.have.property(\"Requisicao\");\r",
+                "    });\r",
+                "\r",
+                "    // 2️⃣ Mensagem\r",
+                "    pm.test(\"Mensagem.Tipo deve ser success\", function () {\r",
+                "        pm.expect(json.Mensagem.Tipo).to.eql(\"success\");\r",
+                "    });\r",
+                "\r",
+                "    pm.test(\"Mensagem.Titulo deve existir\", function () {\r",
+                "        pm.expect(json.Mensagem).to.have.property(\"Titulo\");\r",
+                "    });\r",
+                "\r",
+                "    // 3️⃣ Retorno interno\r",
+                "    pm.test(\"Requisicao.Retorno existe\", function () {\r",
+                "        pm.expect(json.Requisicao).to.have.property(\"Retorno\");\r",
+                "    });\r",
+                "\r",
+                "    pm.test(\"NumeroPedidoWebsupply retornado\", function () {\r",
+                "        pm.expect(json.Requisicao.Retorno.numeroPedidoWebsupply || \r",
+                "                  json.Requisicao.Retorno.NumeroPedidoWebsupply)\r",
+                "            .to.not.be.empty;\r",
+                "    });\r",
+                "\r",
+                "    pm.test(\"NumeroPedidoLight retornado corretamente\", function () {\r",
+                "        pm.expect(\r",
+                "            json.Requisicao.Retorno.numeroPedidoLight ||\r",
+                "            json.Requisicao.Retorno.NumeroPedidoLight\r",
+                "        ).to.eql(pm.request.body.raw ? JSON.parse(pm.request.body.raw).numeroPedidoLight : undefined);\r",
+                "    });\r",
+                "\r",
+                "    // 4️⃣ Status interno\r",
+                "    pm.test(\"Status interno deve ser 200\", function () {\r",
+                "        pm.expect(json.Requisicao.Status).to.eql(200);\r",
+                "    });\r",
+                "\r",
+                "    // 5️⃣ Link referência\r",
+                "    pm.test(\"Link_Referencia presente\", function () {\r",
+                "        pm.expect(json.Requisicao).to.have.property(\"Link_Referencia\");\r",
+                "    });\r",
+                "\r",
+                "}"
+              ],
+              "_lastExecutionId": "9ed0872b-e83d-4da9-bb38-63e1f07c3ffc"
+            }
+          },
+          {
+            "listen": "prerequest",
+            "script": {
+              "id": "32b989cc-f691-436f-bfd7-3c78e74c11fd",
+              "type": "text/javascript",
+              "packages": {},
+              "exec": [
+                ""
+              ],
+              "_lastExecutionId": "417d1b15-2234-484e-991a-b958029c5037"
+            }
+          }
+        ]
+      },
+      "parent": {
+        "id": "b5139e0d-1f35-48e3-8599-643e8c45c6cf",
+        "name": "SMOKE",
+        "item": [
+          {
+            "id": "363ae69d-dee2-4dc3-ac21-a35fb852ab06",
+            "name": "@PED_CAT_SERVIÇO @smoke - Criacao valida simples",
+            "request": {
+              "url": {
+                "path": [
+                  "v1.0",
+                  "pedidocatalogo",
+                  "gerar_pedido_catalogo"
+                ],
+                "host": [
+                  "{{endpoint_base}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"numeroPedidoLight\": \"LP-20917466\",\r\n    \"numeroPedidoWebsupply\": \"\",\r\n    \"codigoUsuarioCriador\": \"FABAUM\",\r\n    \"descricaoResumida\": \"TESTE\",\r\n    \"descricaoCompleta\": \"teste \",\r\n    \"codigoTipoPedido\": \"35\",\r\n    \"codigoTipoProcesso\": \"20\",\r\n    \"codigoEmpresa\": \"LI10\",\r\n    \"codigoGrupoCompras\": \"PDW\",\r\n    \"codigoContrato\": \"4600009762\",\r\n    \"observacao\": \"\",\r\n    \"justificativa\": \"\",\r\n    \"observacaoContrato\": \"\",\r\n    \"arquivoAnexo\": \"\",\r\n    \"rateios\": [\r\n        {\r\n            \"tipoCalculo\": \"P\",\r\n            \"valor\": \"100\",\r\n            \"codigoCentroCusto\": \"5005001\"\r\n        }\r\n    ],\r\n    \"itens\": [\r\n        {\r\n            \"numeroSequencial\": \"1\",\r\n            \"numeroItemContrato\": \"1\",\r\n            \"quantidade\": \"1\",\r\n            \"codigoTipoClassificacaoContabil\": \"K\",\r\n            \"codigoClassificacaoContabil\": \"5005001\",\r\n            \"codigoCentroLogistico\": \"08\",\r\n            \"siglaOrgao\": \"As\",\r\n            \"dataRemessa\": \"2026-06-30\",\r\n            \"codigoLocalEntrega\": \"369288\",\r\n            \"complemento\": \"\",\r\n            \"codigoContaContabil\": \"6130214291\",\r\n            \"compraConsumo\": \"N\",\r\n            \"arquivoAnexo\": \"\",\r\n            \"ativo\": \"S\",\r\n            \"subitens\": [\r\n                {\r\n                    \"numeroSequencial\": \"1\",\r\n                    \"numeroItemContrato\": \"10\",\r\n                    \"quantidade\": \"2\",\r\n                    \"ativo\": \"S\"\r\n                }\r\n            ],\r\n            \"parcelas\": []\r\n        }\r\n    ]\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [
+              {
+                "_": {
+                  "postman_previewlanguage": null
+                },
+                "id": "8763bed2-997c-471d-8aa1-4fbefa166382",
+                "name": "@PED_CAT @smoke - Criacao valida simples",
+                "originalRequest": {
+                  "url": {
+                    "path": [
+                      "v1.0",
+                      "pedidocatalogo",
+                      "gerar_pedido_catalogo"
+                    ],
+                    "host": [
+                      "{{endpoint_base}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                  },
+                  "method": "POST",
+                  "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"numeroPedidoLight\": \"LP-20917466\",\r\n    \"numeroPedidoWebsupply\": \"\",\r\n    \"codigoUsuarioCriador\": \"Fabaum\",\r\n    \"descricaoResumida\": \"Pedido catálogo consumo 20917466\",\r\n    \"descricaoCompleta\": \"Pedido de catálogo referente ao processo Websupply 20917466. Solicitação de materiais de consumo conforme contrato vigente para atendimento das necessidades operacionais do departamento.\",\r\n    \"codigoTipoPedido\": \"35\",\r\n    \"codigoTipoProcesso\": \"1\",\r\n    \"codigoEmpresa\": \"LI10\",\r\n    \"codigoGrupoCompras\": \"PDW01\",\r\n    \"codigoContrato\": \"4600009739\",\r\n    \"observacao\": \"Pedido referente ao processo 20917466 - entrega conforme combinado\",\r\n    \"justificativa\": \"Necessidade operacional do departamento - reposição de estoque\",\r\n    \"observacaoContrato\": \"\",\r\n    \"arquivoAnexo\": \"\",\r\n    \"pedidoAprovado\": \"N\",\r\n    \"matriculaAprovadorPedido\": \"\",\r\n    \"rateios\": [\r\n        {\r\n            \"tipoCalculo\": \"P\",\r\n            \"valor\": \"100\",\r\n            \"codigoCentroCusto\": \"5005005\"\r\n        }\r\n    ],\r\n    \"itens\": [\r\n        {\r\n            \"numeroSequencial\": \"1\",\r\n            \"numeroItemContrato\": \"2\",\r\n            \"quantidade\": \"50\",\r\n            \"codigoTipoClassificacaoContabil\": \"K\",\r\n            \"codigoClassificacaoContabil\": \"02001\",\r\n            \"codigoCentroLogistico\": \"08\",\r\n            \"siglaOrgao\": \"SUPL\",\r\n            \"dataRemessa\": \"2026-05-20\",\r\n            \"codigoLocalEntrega\": \"369288\",\r\n            \"complemento\": \"\",\r\n            \"codigoContaContabil\": \"6130016800\",\r\n            \"compraConsumo\": \"S\",\r\n            \"arquivoAnexo\": \"\",\r\n            \"ativo\": \"S\",\r\n            \"criarFolhaRegistro\": \"\",\r\n            \"periodoInicio\": \"\",\r\n            \"periodoFinal\": \"\",\r\n            \"numeroExterno\": \"\",\r\n            \"localPrestacao\": \"\",\r\n            \"textoBreve\": \"\",\r\n            \"encarregadoInterno\": \"\",\r\n            \"encarregadoExterno\": \"\",\r\n            \"descricao\": \"\",\r\n            \"statusFolha\": \"\",\r\n            \"subitens\": [],\r\n            \"parcelas\": [\r\n                {\r\n                    \"numeroParcela\": \"1\",\r\n                    \"quantidade\": \"25\",\r\n                    \"dataEntrega\": \"2026-05-10\"\r\n                },\r\n                {\r\n                    \"numeroParcela\": \"2\",\r\n                    \"quantidade\": \"25\",\r\n                    \"dataEntrega\": \"2026-05-18\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+                    "options": {
+                      "raw": {
+                        "language": "json"
+                      }
+                    }
+                  }
+                },
+                "status": "OK",
+                "code": 200,
+                "header": [
+                  {
+                    "key": "Date",
+                    "value": "Fri, 08 May 2026 14:21:42 GMT"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Transfer-Encoding",
+                    "value": "chunked"
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive"
+                  },
+                  {
+                    "key": "Server",
+                    "value": "cloudflare"
+                  },
+                  {
+                    "key": "api-supported-versions",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "robots",
+                    "value": "noindex, nofollow"
+                  },
+                  {
+                    "key": "X-Robots",
+                    "value": "otherbot: noindex, nofollow"
+                  },
+                  {
+                    "key": "X-Robots-Tag",
+                    "value": "googlebot: noindex, nofollow"
+                  },
+                  {
+                    "key": "x-xss-protection",
+                    "value": "1; mode=block"
+                  },
+                  {
+                    "key": "x-frame-options",
+                    "value": "SAMEORIGIN"
+                  },
+                  {
+                    "key": "Content-Security-Policy",
+                    "value": "object-src 'self'; frame-ancestors 'self' *.websupply.com.br *.remaza.com.br; script-src 'self' 'unsafe-inline' 'unsafe-eval' apis.google.com *.google.com *.gstatic.com code.jquery.com unpkg.com *.fontawesome.com *.aspnetcdn.com *.yahooapis.com cdn.jsdelivr.net cdnjs.cloudflare.com www.googletagmanager.com *.bootstrapcdn.com cdn.datatables.net connect.facebook.net *.angularjs.org ajax.googleapis.com *.google-analytics.com *.googleadservices.com *.doubleclick.net *.weatherwidget.org cdn.tailwindcss.com;"
+                  },
+                  {
+                    "key": "Strict-Transport-Security",
+                    "value": "max-age=31536000; includeSubDomains; preload"
+                  },
+                  {
+                    "key": "x-content-type-options",
+                    "value": "nosniff"
+                  },
+                  {
+                    "key": "Nel",
+                    "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                  },
+                  {
+                    "key": "cf-cache-status",
+                    "value": "DYNAMIC"
+                  },
+                  {
+                    "key": "referrer-policy",
+                    "value": "same-origin"
+                  },
+                  {
+                    "key": "Report-To",
+                    "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=s10fAfbFMdqgoSpixzh35J8ibZLGhOnGPzfOImzx%2BomceC%2FCep25OqVl38bEdfqtQVnoQAKziiB4DUjzQqQrV8wP4oL1GUImSIN08zGb2shJm%2BJMUmF6mb5yqlJTjw1As1LPO9YOxJ8%2BuuF6aaIxp4IO\"}]}"
+                  },
+                  {
+                    "key": "expect-ct",
+                    "value": "max-age=86400, enforce"
+                  },
+                  {
+                    "key": "Content-Encoding",
+                    "value": "br"
+                  },
+                  {
+                    "key": "CF-RAY",
+                    "value": "9f891cb3084a3149-GIG"
+                  }
+                ],
+                "body": "{\n    \"Mensagem\": {\n        \"Titulo\": \"Sucesso\",\n        \"Texto\": \"Pedido de Catálogo Gerado\",\n        \"Tipo\": \"success\"\n    },\n    \"Requisicao\": {\n        \"Retorno\": {\n            \"Mensagem\": \"Pedido de Catálogo Processado com Sucesso\",\n            \"NumeroPedidoWebsupply\": \"20918412\",\n            \"NumeroPedidoLight\": \"LP-20917466\",\n            \"GuidProcessamento\": \"9b0c088b-bba8-4eba-9f90-56e091b91d88\"\n        },\n        \"Status\": 200,\n        \"Link_Referencia\": \"https://api.homologacao.websupply.com.br/LIGHT_PLUS/v1.0/PedidoCatalogo/gerar_pedido_catalogo\"\n    }\n}",
+                "cookie": []
+              }
+            ],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "7b523d94-faf9-418a-85bd-f74459355669",
+                  "type": "text/javascript",
+                  "packages": {},
+                  "exec": [
+                    "// @PED_CAT @smoke - Criacao valida simples\r",
+                    "// Valida contrato completo de retorno da API\r",
+                    "\r",
+                    "pm.test(\"Status HTTP deve ser 200\", function () {\r",
+                    "    pm.response.to.have.status(200);\r",
+                    "});\r",
+                    "\r",
+                    "if (pm.response && pm.response.code === 200){\r",
+                    "\r",
+                    "    const json = pm.response.json();\r",
+                    "\r",
+                    "    // 1️⃣ Estrutura principal\r",
+                    "    pm.test(\"Envelope Mensagem existe\", function () {\r",
+                    "        pm.expect(json).to.have.property(\"Mensagem\");\r",
+                    "    });\r",
+                    "\r",
+                    "    pm.test(\"Envelope Requisicao existe\", function () {\r",
+                    "        pm.expect(json).to.have.property(\"Requisicao\");\r",
+                    "    });\r",
+                    "\r",
+                    "    // 2️⃣ Mensagem\r",
+                    "    pm.test(\"Mensagem.Tipo deve ser success\", function () {\r",
+                    "        pm.expect(json.Mensagem.Tipo).to.eql(\"success\");\r",
+                    "    });\r",
+                    "\r",
+                    "    pm.test(\"Mensagem.Titulo deve existir\", function () {\r",
+                    "        pm.expect(json.Mensagem).to.have.property(\"Titulo\");\r",
+                    "    });\r",
+                    "\r",
+                    "    // 3️⃣ Retorno interno\r",
+                    "    pm.test(\"Requisicao.Retorno existe\", function () {\r",
+                    "        pm.expect(json.Requisicao).to.have.property(\"Retorno\");\r",
+                    "    });\r",
+                    "\r",
+                    "    pm.test(\"NumeroPedidoWebsupply retornado\", function () {\r",
+                    "        pm.expect(json.Requisicao.Retorno.numeroPedidoWebsupply || \r",
+                    "                  json.Requisicao.Retorno.NumeroPedidoWebsupply)\r",
+                    "            .to.not.be.empty;\r",
+                    "    });\r",
+                    "\r",
+                    "    pm.test(\"NumeroPedidoLight retornado corretamente\", function () {\r",
+                    "        pm.expect(\r",
+                    "            json.Requisicao.Retorno.numeroPedidoLight ||\r",
+                    "            json.Requisicao.Retorno.NumeroPedidoLight\r",
+                    "        ).to.eql(pm.request.body.raw ? JSON.parse(pm.request.body.raw).numeroPedidoLight : undefined);\r",
+                    "    });\r",
+                    "\r",
+                    "    // 4️⃣ Status interno\r",
+                    "    pm.test(\"Status interno deve ser 200\", function () {\r",
+                    "        pm.expect(json.Requisicao.Status).to.eql(200);\r",
+                    "    });\r",
+                    "\r",
+                    "    // 5️⃣ Link referência\r",
+                    "    pm.test(\"Link_Referencia presente\", function () {\r",
+                    "        pm.expect(json.Requisicao).to.have.property(\"Link_Referencia\");\r",
+                    "    });\r",
+                    "\r",
+                    "}"
+                  ],
+                  "_lastExecutionId": "9ed0872b-e83d-4da9-bb38-63e1f07c3ffc"
+                }
+              },
+              {
+                "listen": "prerequest",
+                "script": {
+                  "id": "32b989cc-f691-436f-bfd7-3c78e74c11fd",
+                  "type": "text/javascript",
+                  "packages": {},
+                  "exec": [
+                    ""
+                  ],
+                  "_lastExecutionId": "417d1b15-2234-484e-991a-b958029c5037"
+                }
+              }
+            ]
+          },
+          {
+            "id": "018c80f4-632f-4b4b-9e62-a39907978847",
+            "name": "@PED_CAT_MATERIAL @smoke - Criacao valida simples",
+            "request": {
+              "url": {
+                "path": [
+                  "v1.0",
+                  "pedidocatalogo",
+                  "gerar_pedido_catalogo"
+                ],
+                "host": [
+                  "{{endpoint_base}}"
+                ],
+                "query": [],
+                "variable": []
+              },
+              "method": "POST",
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"numeroPedidoLight\": \"LP-20906339\",\r\n    \"numeroPedidoWebsupply\": \"\",\r\n    \"codigoUsuarioCriador\": \"Fabaum\",\r\n    \"descricaoResumida\": \"Teste fornecedor\",\r\n    \"descricaoCompleta\": \"teste\",\r\n    \"codigoTipoPedido\": \"35\",\r\n    \"codigoTipoProcesso\": \"5\",\r\n    \"codigoEmpresa\": \"LI10\",\r\n    \"codigoGrupoCompras\": \"PDW\",\r\n    \"codigoContrato\": \"4600007837\",\r\n    \"observacao\": \"\",\r\n    \"justificativa\": \"\",\r\n    \"observacaoContrato\": \"\",\r\n    \"arquivoAnexo\": \"\",\r\n    \"rateios\": [\r\n        {\r\n            \"tipoCalculo\": \"P\",\r\n            \"valor\": \"100\",\r\n            \"codigoCentroCusto\": \"5005005\"\r\n        }\r\n    ],\r\n    \"itens\": [\r\n        {\r\n            \"numeroSequencial\": \"1\",\r\n            \"numeroItemContrato\": \"1\",\r\n            \"quantidade\": \"1\",\r\n            \"codigoTipoClassificacaoContabil\": \"K\",\r\n            \"codigoClassificacaoContabil\": \"5005005\",\r\n            \"codigoCentroLogistico\": \"08\",\r\n            \"siglaOrgao\": \"FLP\",\r\n            \"dataRemessa\": \"2026-06-30\",\r\n            \"codigoLocalEntrega\": \"369288\",\r\n            \"complemento\": \"\",\r\n            \"codigoContaContabil\": \"6130989006\",\r\n            \"compraConsumo\": \"N\",\r\n            \"arquivoAnexo\": \"\",\r\n            \"ativo\": \"S\",\r\n            \"subitens\": [],\r\n            \"parcelas\": []\r\n        }\r\n    ]\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              }
+            },
+            "response": [
+              {
+                "_": {
+                  "postman_previewlanguage": null
+                },
+                "id": "62e3610e-778e-4424-8f70-6f47cbc75a01",
+                "name": "@PED_CAT @smoke - Criacao valida simples",
+                "originalRequest": {
+                  "url": {
+                    "path": [
+                      "v1.0",
+                      "pedidocatalogo",
+                      "gerar_pedido_catalogo"
+                    ],
+                    "host": [
+                      "{{endpoint_base}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                  },
+                  "method": "POST",
+                  "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"numeroPedidoLight\": \"LP-20917466\",\r\n    \"numeroPedidoWebsupply\": \"\",\r\n    \"codigoUsuarioCriador\": \"Fabaum\",\r\n    \"descricaoResumida\": \"Pedido catálogo consumo 20917466\",\r\n    \"descricaoCompleta\": \"Pedido de catálogo referente ao processo Websupply 20917466. Solicitação de materiais de consumo conforme contrato vigente para atendimento das necessidades operacionais do departamento.\",\r\n    \"codigoTipoPedido\": \"35\",\r\n    \"codigoTipoProcesso\": \"1\",\r\n    \"codigoEmpresa\": \"LI10\",\r\n    \"codigoGrupoCompras\": \"PDW01\",\r\n    \"codigoContrato\": \"4600009739\",\r\n    \"observacao\": \"Pedido referente ao processo 20917466 - entrega conforme combinado\",\r\n    \"justificativa\": \"Necessidade operacional do departamento - reposição de estoque\",\r\n    \"observacaoContrato\": \"\",\r\n    \"arquivoAnexo\": \"\",\r\n    \"pedidoAprovado\": \"N\",\r\n    \"matriculaAprovadorPedido\": \"\",\r\n    \"rateios\": [\r\n        {\r\n            \"tipoCalculo\": \"P\",\r\n            \"valor\": \"100\",\r\n            \"codigoCentroCusto\": \"5005005\"\r\n        }\r\n    ],\r\n    \"itens\": [\r\n        {\r\n            \"numeroSequencial\": \"1\",\r\n            \"numeroItemContrato\": \"2\",\r\n            \"quantidade\": \"50\",\r\n            \"codigoTipoClassificacaoContabil\": \"K\",\r\n            \"codigoClassificacaoContabil\": \"02001\",\r\n            \"codigoCentroLogistico\": \"08\",\r\n            \"siglaOrgao\": \"SUPL\",\r\n            \"dataRemessa\": \"2026-05-20\",\r\n            \"codigoLocalEntrega\": \"369288\",\r\n            \"complemento\": \"\",\r\n            \"codigoContaContabil\": \"6130016800\",\r\n            \"compraConsumo\": \"S\",\r\n            \"arquivoAnexo\": \"\",\r\n            \"ativo\": \"S\",\r\n            \"criarFolhaRegistro\": \"\",\r\n            \"periodoInicio\": \"\",\r\n            \"periodoFinal\": \"\",\r\n            \"numeroExterno\": \"\",\r\n            \"localPrestacao\": \"\",\r\n            \"textoBreve\": \"\",\r\n            \"encarregadoInterno\": \"\",\r\n            \"encarregadoExterno\": \"\",\r\n            \"descricao\": \"\",\r\n            \"statusFolha\": \"\",\r\n            \"subitens\": [],\r\n            \"parcelas\": [\r\n                {\r\n                    \"numeroParcela\": \"1\",\r\n                    \"quantidade\": \"25\",\r\n                    \"dataEntrega\": \"2026-05-10\"\r\n                },\r\n                {\r\n                    \"numeroParcela\": \"2\",\r\n                    \"quantidade\": \"25\",\r\n                    \"dataEntrega\": \"2026-05-18\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+                    "options": {
+                      "raw": {
+                        "language": "json"
+                      }
+                    }
+                  }
+                },
+                "status": "OK",
+                "code": 200,
+                "header": [
+                  {
+                    "key": "Date",
+                    "value": "Fri, 08 May 2026 14:21:42 GMT"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json; charset=utf-8"
+                  },
+                  {
+                    "key": "Transfer-Encoding",
+                    "value": "chunked"
+                  },
+                  {
+                    "key": "Connection",
+                    "value": "keep-alive"
+                  },
+                  {
+                    "key": "Server",
+                    "value": "cloudflare"
+                  },
+                  {
+                    "key": "api-supported-versions",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "robots",
+                    "value": "noindex, nofollow"
+                  },
+                  {
+                    "key": "X-Robots",
+                    "value": "otherbot: noindex, nofollow"
+                  },
+                  {
+                    "key": "X-Robots-Tag",
+                    "value": "googlebot: noindex, nofollow"
+                  },
+                  {
+                    "key": "x-xss-protection",
+                    "value": "1; mode=block"
+                  },
+                  {
+                    "key": "x-frame-options",
+                    "value": "SAMEORIGIN"
+                  },
+                  {
+                    "key": "Content-Security-Policy",
+                    "value": "object-src 'self'; frame-ancestors 'self' *.websupply.com.br *.remaza.com.br; script-src 'self' 'unsafe-inline' 'unsafe-eval' apis.google.com *.google.com *.gstatic.com code.jquery.com unpkg.com *.fontawesome.com *.aspnetcdn.com *.yahooapis.com cdn.jsdelivr.net cdnjs.cloudflare.com www.googletagmanager.com *.bootstrapcdn.com cdn.datatables.net connect.facebook.net *.angularjs.org ajax.googleapis.com *.google-analytics.com *.googleadservices.com *.doubleclick.net *.weatherwidget.org cdn.tailwindcss.com;"
+                  },
+                  {
+                    "key": "Strict-Transport-Security",
+                    "value": "max-age=31536000; includeSubDomains; preload"
+                  },
+                  {
+                    "key": "x-content-type-options",
+                    "value": "nosniff"
+                  },
+                  {
+                    "key": "Nel",
+                    "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                  },
+                  {
+                    "key": "cf-cache-status",
+                    "value": "DYNAMIC"
+                  },
+                  {
+                    "key": "referrer-policy",
+                    "value": "same-origin"
+                  },
+                  {
+                    "key": "Report-To",
+                    "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=s10fAfbFMdqgoSpixzh35J8ibZLGhOnGPzfOImzx%2BomceC%2FCep25OqVl38bEdfqtQVnoQAKziiB4DUjzQqQrV8wP4oL1GUImSIN08zGb2shJm%2BJMUmF6mb5yqlJTjw1As1LPO9YOxJ8%2BuuF6aaIxp4IO\"}]}"
+                  },
+                  {
+                    "key": "expect-ct",
+                    "value": "max-age=86400, enforce"
+                  },
+                  {
+                    "key": "Content-Encoding",
+                    "value": "br"
+                  },
+                  {
+                    "key": "CF-RAY",
+                    "value": "9f891cb3084a3149-GIG"
+                  }
+                ],
+                "body": "{\n    \"Mensagem\": {\n        \"Titulo\": \"Sucesso\",\n        \"Texto\": \"Pedido de Catálogo Gerado\",\n        \"Tipo\": \"success\"\n    },\n    \"Requisicao\": {\n        \"Retorno\": {\n            \"Mensagem\": \"Pedido de Catálogo Processado com Sucesso\",\n            \"NumeroPedidoWebsupply\": \"20918412\",\n            \"NumeroPedidoLight\": \"LP-20917466\",\n            \"GuidProcessamento\": \"9b0c088b-bba8-4eba-9f90-56e091b91d88\"\n        },\n        \"Status\": 200,\n        \"Link_Referencia\": \"https://api.homologacao.websupply.com.br/LIGHT_PLUS/v1.0/PedidoCatalogo/gerar_pedido_catalogo\"\n    }\n}",
+                "cookie": []
+              }
+            ],
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "2b435bfe-7de5-4ea7-86c2-77c630e58dcb",
+                  "type": "text/javascript",
+                  "packages": {},
+                  "exec": [
+                    "// @PED_CAT @smoke - Criacao valida simples\r",
+                    "// Valida contrato completo de retorno da API\r",
+                    "\r",
+                    "pm.test(\"Status HTTP deve ser 200\", function () {\r",
+                    "    pm.response.to.have.status(200);\r",
+                    "});\r",
+                    "\r",
+                    "if (pm.response.code === 200) {\r",
+                    "\r",
+                    "    const json = pm.response.json();\r",
+                    "\r",
+                    "    // 1️⃣ Estrutura principal\r",
+                    "    pm.test(\"Envelope Mensagem existe\", function () {\r",
+                    "        pm.expect(json).to.have.property(\"Mensagem\");\r",
+                    "    });\r",
+                    "\r",
+                    "    pm.test(\"Envelope Requisicao existe\", function () {\r",
+                    "        pm.expect(json).to.have.property(\"Requisicao\");\r",
+                    "    });\r",
+                    "\r",
+                    "    // 2️⃣ Mensagem\r",
+                    "    pm.test(\"Mensagem.Tipo deve ser success\", function () {\r",
+                    "        pm.expect(json.Mensagem.Tipo).to.eql(\"success\");\r",
+                    "    });\r",
+                    "\r",
+                    "    pm.test(\"Mensagem.Titulo deve existir\", function () {\r",
+                    "        pm.expect(json.Mensagem).to.have.property(\"Titulo\");\r",
+                    "    });\r",
+                    "\r",
+                    "    // 3️⃣ Retorno interno\r",
+                    "    pm.test(\"Requisicao.Retorno existe\", function () {\r",
+                    "        pm.expect(json.Requisicao).to.have.property(\"Retorno\");\r",
+                    "    });\r",
+                    "\r",
+                    "    pm.test(\"NumeroPedidoWebsupply retornado\", function () {\r",
+                    "        pm.expect(json.Requisicao.Retorno.numeroPedidoWebsupply || \r",
+                    "                  json.Requisicao.Retorno.NumeroPedidoWebsupply)\r",
+                    "            .to.not.be.empty;\r",
+                    "    });\r",
+                    "\r",
+                    "    pm.test(\"NumeroPedidoLight retornado corretamente\", function () {\r",
+                    "        pm.expect(\r",
+                    "            json.Requisicao.Retorno.numeroPedidoLight ||\r",
+                    "            json.Requisicao.Retorno.NumeroPedidoLight\r",
+                    "        ).to.eql(pm.request.body.raw ? JSON.parse(pm.request.body.raw).numeroPedidoLight : undefined);\r",
+                    "    });\r",
+                    "\r",
+                    "    // 4️⃣ Status interno\r",
+                    "    pm.test(\"Status interno deve ser 200\", function () {\r",
+                    "        pm.expect(json.Requisicao.Status).to.eql(200);\r",
+                    "    });\r",
+                    "\r",
+                    "    // 5️⃣ Link referência\r",
+                    "    pm.test(\"Link_Referencia presente\", function () {\r",
+                    "        pm.expect(json.Requisicao).to.have.property(\"Link_Referencia\");\r",
+                    "    });\r",
+                    "\r",
+                    "}"
+                  ],
+                  "_lastExecutionId": "418fecf1-a3a3-4825-b78c-2d13a1aada30"
+                }
+              }
+            ]
+          }
+        ],
+        "event": []
+      },
+      "cursor": {
+        "position": 0,
+        "iteration": 0,
+        "length": 2,
+        "cycles": 1,
+        "empty": false,
+        "eof": false,
+        "bof": true,
+        "cr": false,
+        "ref": "aebb4d38-5913-465f-b01a-1ab8f42abf4d",
+        "httpRequestId": "c56376f4-ff32-42d3-89db-2eb80636d477",
+        "scriptId": "7b523d94-faf9-418a-85bd-f74459355669",
+        "execution": "9ed0872b-e83d-4da9-bb38-63e1f07c3ffc"
+      }
+    }
+  ],
+  "executions": [
+    {
+      "name": "@PED_CAT_MATERIAL @smoke - Criacao valida simples",
+      "passed": 10,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 200",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Envelope Mensagem existe",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Envelope Requisicao existe",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser success",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Titulo deve existir",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Requisicao.Retorno existe",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "NumeroPedidoWebsupply retornado",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "NumeroPedidoLight retornado corretamente",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 200",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia presente",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT_SERVIÇO @smoke - Criacao valida simples",
+      "passed": 0,
+      "failed": 1,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 200",
+          "passed": false,
+          "error": "expected response to have status code 200 but got 400"
+        }
+      ]
+    }
+  ]
+}
