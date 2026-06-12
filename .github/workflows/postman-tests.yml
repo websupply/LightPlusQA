@@ -256,23 +256,33 @@ jobs:
 
       - name: Recuperar pastas de detalhes anteriores do gh-pages
         run: |
+          mkdir -p public
           git fetch origin gh-pages 2>/dev/null || true
-          if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
-            # Faz checkout do gh-pages em pasta separada, sem tocar no workspace
-            mkdir -p /tmp/gh-pages-data
-            git archive origin/gh-pages | tar -x -C /tmp/gh-pages-data 2>/dev/null || true
 
-            # Copia todas as pastas de execuções anteriores para public/
-            for dir in /tmp/gh-pages-data/[0-9]*-[0-9]*-[0-9]*_*/; do
-              [ -d "$dir" ] || continue
-              dirname=$(basename "$dir")
-              mkdir -p public/$dirname
-              cp -r $dir/. public/$dirname/
-              echo "Restaurada pasta: $dirname"
-            done
-          else
-            echo "Branch gh-pages ainda não existe, pulando restauração."
+          if ! git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+            echo "Branch gh-pages não existe ainda, pulando."
+            exit 0
           fi
+
+          # Extrai todo o conteúdo do gh-pages em pasta temporária isolada
+          mkdir -p /tmp/gh-pages-data
+          git archive origin/gh-pages | tar -x -C /tmp/gh-pages-data
+          echo "Conteúdo extraído do gh-pages:"
+          ls /tmp/gh-pages-data/
+
+          # Copia TODAS as subpastas que contêm arquivos .json de detalhes
+          find /tmp/gh-pages-data -mindepth 1 -maxdepth 1 -type d | while read dir; do
+            dirname=$(basename "$dir")
+            # Verifica se a pasta contém pelo menos um .json de detalhe
+            if ls "$dir"/*.json 2>/dev/null | grep -q .; then
+              mkdir -p "public/$dirname"
+              cp -r "$dir"/. "public/$dirname/"
+              echo "Restaurada: $dirname ($(ls $dir/*.json | wc -l) arquivos)"
+            fi
+          done
+
+          echo "Pastas restauradas em public/:"
+          ls public/
 
       - name: Atualizar history.json
         run: |
@@ -687,7 +697,7 @@ jobs:
     name: Notificar Falhas por E-mail
     runs-on: ubuntu-latest
     needs: [smoke, validation, business, alteracao]
-    if: failure() && github.event_name == 'schedule'
+    if: always() # TEMPORARIO - reverter para: failure() && github.event_name == 'schedule'
     steps:
       - name: Enviar e-mail de alerta
         uses: dawidd6/action-send-mail@v3
