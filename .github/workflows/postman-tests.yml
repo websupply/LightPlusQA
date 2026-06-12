@@ -697,7 +697,7 @@ jobs:
     name: Notificar Falhas por E-mail
     runs-on: ubuntu-latest
     needs: [smoke, validation, business, alteracao]
-    if: always() # TEMPORARIO - reverter para: failure() && github.event_name == 'schedule'
+    if: failure() && github.event_name == 'schedule'
     steps:
       - name: Enviar e-mail de alerta
         uses: dawidd6/action-send-mail@v3
@@ -726,4 +726,3 @@ jobs:
 
             ---
             Este e-mail foi enviado automaticamente pelo GitHub Actions.
-            
