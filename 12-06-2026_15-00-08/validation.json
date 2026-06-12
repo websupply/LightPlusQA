@@ -1,0 +1,1790 @@
+{
+  "summary": {
+    "iterations": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "items": {
+      "total": 44,
+      "pending": 0,
+      "failed": 0
+    },
+    "scripts": {
+      "total": 220,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequests": {
+      "total": 44,
+      "pending": 0,
+      "failed": 0
+    },
+    "requests": {
+      "total": 88,
+      "pending": 0,
+      "failed": 0
+    },
+    "tests": {
+      "total": 44,
+      "pending": 0,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 286,
+      "pending": 0,
+      "failed": 0
+    },
+    "testScripts": {
+      "total": 132,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequestScripts": {
+      "total": 88,
+      "pending": 0,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "executions": [
+    {
+      "name": "@PED_CAT-3.6 @validation - NumeroParcela negativo",
+      "passed": 5,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem deve indicar que quantidade deve ser maior que zero",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4 @validation - DataRemessa obrigatoria",
+      "passed": 8,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar DataRemessa",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve indicar obrigatoriedade",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.3 @validation - tipoCalculo obrigatorio",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar TipoCalculo",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4 @validation - Quantidade negativa",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve indicar que Quantidade deve ser numerica e maior que zero",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.2 @validation - DescricaoResumida obrigatoria",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Mensagem",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Requisicao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Titulo deve indicar erro de validacao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar descricao resumida obrigatorio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.2 @validation - CodigoTipoPedido obrigatorio",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Mensagem",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Requisicao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Titulo deve indicar erro de validacao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar código tipo Pedido obrigatorio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.3 @validation - tipoCalculo invalido",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar TipoCalculo e valores permitidos",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.5 @validation - NumeroitemContrato obrigatório",
+      "passed": 6,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Mensagem",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Titulo deve ser 'Erro de Validação'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo da mensagem deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar NumeroItemContrato obrigatório",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Requisicao.Status deve ser 400",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.6 @validation - Parcelas null",
+      "passed": 6,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Retorno deve conter envelope de negocio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo da mensagem deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Nao deve seguir padrao RFC estrutural",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter CriticasNegocio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Critica deve mencionar obrigatoriedade de subitem para item de servico",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.5 @validation - Quantidade parcela negativa",
+      "passed": 5,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem deve indicar que quantidade deve ser maior que zero",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.2 @validation - numeroPedidoLight obrigatorio",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Mensagem",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Requisicao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Titulo deve indicar erro de validacao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar Numero do Pedido Light obrigatorio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.5 @validation - Subitens null",
+      "passed": 6,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Retorno deve conter envelope de negocio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo da mensagem deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Nao deve seguir padrao RFC estrutural",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter CriticasNegocio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Critica deve mencionar obrigatoriedade de subitem",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.5 @validation - Quantidade parcela zero",
+      "passed": 5,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem deve indicar que quantidade deve ser maior que zero",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4  @validation - CodigoContaContabil obrigatória",
+      "passed": 6,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter CriticasNegocio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Critica deve mencionar Conta Contabil nao localizada",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4 @validation - SiglaOrgao obrigatoria",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar SiglaOrgao como obrigatorio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.2 @validation - CodigoContrato obrigatorio",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar CodigoContrato obrigatório",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4 @validation - Ativo S",
+      "passed": 6,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter CriticasNegocio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Critica deve mencionar erro de regra SAP",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4 @validation - Ativo obrigatorio",
+      "passed": 8,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar campo Ativo",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve indicar que deve ser 'S' ou 'N'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.6 @validation - NumeroParcela zero",
+      "passed": 5,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem deve indicar que quantidade deve ser maior que zero",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4  @validation - Quantidade nao numerica",
+      "passed": 9,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar 'Quantidade'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve indicar que deve ser numerica",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve indicar que deve ser maior que zero",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4 @validation - Ativo inexistente",
+      "passed": 8,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar campo Ativo",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve indicar que deve ser 'S' ou 'N'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4  @validation - CodigoCentroLogistico vazio",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar CodigoCentroLogistico",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.5 @validation - itens array vazio",
+      "passed": 5,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem deve indicar obrigatoriedade de Item",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.5 @validation - Quantidade parcela nao numerica",
+      "passed": 5,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem deve indicar erro numérico na quantidade da parcela",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.6 @validation - DataEntrega formato invalido",
+      "passed": 5,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem deve indicar data inválida em DataEntrega",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.3 @validation - codigoCentroCusto obrigatorio",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar CodigoCentroCusto",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.3 @validation - valor negativo",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve indicar que Valor deve ser maior que zero",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.3 @validation - rateios array vazio",
+      "passed": 6,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Deve conter objeto Mensagem",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Requisicao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Titulo deve indicar erro de validacao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar Rateio obrigatorio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4 @validation - CodigoLocalEntrega inexistente",
+      "passed": 6,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter CriticasNegocio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Critica deve mencionar Local de Entrega não localizado",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.2 @validation - codigoEmpresa obrigatorio",
+      "passed": 6,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Deve conter objeto Mensagem",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Requisicao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Titulo deve indicar erro de validacao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar Código empresa obrigatório",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.2 @validation - DescricaoCompleta obrigatoria",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Mensagem",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Requisicao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Titulo deve indicar erro de validacao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar descricao completa obrigatorio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4 @validation - NumeroItemContrato obrigatorio",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar NumeroItemContrato obrigatório",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.2 @validation - CodigoUsuarioCriador obrigatorio",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Mensagem",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Requisicao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Titulo deve indicar erro de validacao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar CodigoUsuarioCriador obrigatorio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4 @validation - DataRemessa formato invalido",
+      "passed": 8,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar DataRemessa",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve indicar data invalida",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.2 @validation - CodigoGrupoCompras obrigatorio",
+      "passed": 6,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Deve conter objeto Mensagem",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Requisicao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Titulo deve indicar erro de validacao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar Código grupo de compras obrigatorio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.3 @validation - valor nao numerico",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve indicar que Valor deve ser numerico",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.3 @validation - valor zero",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve indicar que Valor deve ser maior que zero",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.6 @validation - NumeroParcela nao numerico",
+      "passed": 5,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem deve indicar que quantidade deve ser maior que zero",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.2 @validation - CodigoTipoProcesso obrigatorio",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Mensagem",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Requisicao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Titulo deve indicar erro de validacao",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar código tipo processo obrigatorio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.3 @validation - valor obrigatorio",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar campo Valor",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4  @validation - Quantidade 0",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve indicar que Quantidade deve ser numerica e maior que zero",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4 @validation - Numero sequencial do item obrigatório",
+      "passed": 5,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Retorno deve conter envelope de negocio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Tipo da mensagem deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter CriticasNegocio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Critica deve mencionar obrigatoriedade de subitem",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4 @validation - CodigoLocalEntrega obrigatorio",
+      "passed": 7,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Mensagem'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto 'Requisicao'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser 'warning'",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Texto deve mencionar CodigoLocalEntrega",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia deve existir",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT-3.4  @validation - TipoClassificaçãoContabil vazio para serviço",
+      "passed": 6,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 400",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter objeto Mensagem",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser warning",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Deve conter CriticasNegocio",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Critica deve mencionar CodigoTipoClassificacaoContabil",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Nao deve conter objeto 'errors'",
+          "passed": true,
+          "error": null
+        }
+      ]
+    }
+  ]
+}
