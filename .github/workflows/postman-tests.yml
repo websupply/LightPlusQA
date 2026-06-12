@@ -676,3 +676,37 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
+
+  notificar:
+    name: Notificar Falhas por E-mail
+    runs-on: ubuntu-latest
+    needs: [smoke, validation, business, alteracao]
+    if: failure() && github.event_name == 'schedule'
+    steps:
+      - name: Enviar e-mail de alerta
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.office365.com
+          server_port: 587
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          to: ${{ secrets.MAIL_TO }}
+          from: "API Quality Dashboard <${{ secrets.MAIL_USERNAME }}>"
+          subject: "🚨 Falha nos testes - Pedido Catálogo (Run #${{ github.run_number }})"
+          body: |
+            Olá,
+
+            A execução automática dos testes de API do Pedido Catálogo detectou falhas.
+
+            🔢 Run: #${{ github.run_number }}
+            🔗 Repositório: ${{ github.repository }}
+
+            Acesse o dashboard para ver os detalhes:
+            https://kamillaqa.github.io/LightPlus/
+
+            Veja o log completo da execução:
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            ---
+            Este e-mail foi enviado automaticamente pelo GitHub Actions.
