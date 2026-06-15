@@ -542,5 +542,39 @@
         "success": "100.00"
       }
     }
+  },
+  {
+    "date": "15-06-2026",
+    "folder": "15-06-2026_13-16-34",
+    "failed": 0,
+    "passed": 495,
+    "total": 495,
+    "success": "100.00",
+    "phases": {
+      "smoke": {
+        "passed": 20,
+        "failed": 0,
+        "total": 20,
+        "success": "100.00"
+      },
+      "validation": {
+        "passed": 286,
+        "failed": 0,
+        "total": 286,
+        "success": "100.00"
+      },
+      "business": {
+        "passed": 130,
+        "failed": 0,
+        "total": 130,
+        "success": "100.00"
+      },
+      "alteracao": {
+        "passed": 59,
+        "failed": 0,
+        "total": 59,
+        "success": "100.00"
+      }
+    }
   }
 ]
