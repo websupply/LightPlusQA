@@ -13822,6 +13822,410 @@
                   "body": "{\n    \"Mensagem\": {\n        \"Titulo\": \"Atenção\",\n        \"Texto\": \"Pedido de Catálogo Rejeitado pelas Regras de Negócio\",\n        \"Tipo\": \"warning\"\n    },\n    \"Requisicao\": {\n        \"Retorno\": {\n            \"Validacao\": {\n                \"CriticasNegocio\": [\n                    \"Foram encontradas inconsistências na validação.\",\n                    \"VALIDACAO: Item 1 Parcela 1 >>> Data de entrega da parcela (23/06/2026) não pode ser posterior à data de remessa do item (30/05/2026).\"\n                ]\n            },\n            \"Captura\": {\n                \"Estagio\": \"Processamento e Validação\"\n            },\n            \"Dados\": {\n                \"NumeroPedidoLight\": \"LP-20906339\",\n                \"NumeroPedidoWebsupply\": \"\",\n                \"CodigoUsuarioCriador\": \"Fabaum\",\n                \"DescricaoResumida\": \"Teste fornecedor\",\n                \"DescricaoCompleta\": \"teste\",\n                \"CodigoTipoPedido\": \"35\",\n                \"CodigoTipoProcesso\": \"5\",\n                \"CodigoEmpresa\": \"LI10\",\n                \"CodigoGrupoCompras\": \"PDW\",\n                \"CodigoContrato\": \"4600007837\",\n                \"Observacao\": \"\",\n                \"Justificativa\": \"\",\n                \"ObservacaoContrato\": \"\",\n                \"ArquivoAnexo\": \"\",\n                \"PedidoAprovado\": null,\n                \"MatriculaAprovadorPedido\": null,\n                \"Rateios\": [\n                    {\n                        \"TipoCalculo\": \"P\",\n                        \"Valor\": \"100\",\n                        \"CodigoCentroCusto\": \"5005005\"\n                    }\n                ],\n                \"Itens\": [\n                    {\n                        \"NumeroSequencial\": \"1\",\n                        \"NumeroItemContrato\": \"1\",\n                        \"Quantidade\": \"1\",\n                        \"CodigoTipoClassificacaoContabil\": \"\",\n                        \"CodigoClassificacaoContabil\": \"\",\n                        \"CodigoCentroLogistico\": \"08\",\n                        \"SiglaOrgao\": \"FLP\",\n                        \"DataRemessa\": \"2026-05-30\",\n                        \"CodigoLocalEntrega\": \"369288\",\n                        \"Complemento\": \"\",\n                        \"CodigoContaContabil\": \"\",\n                        \"CompraConsumo\": \"N\",\n                        \"ArquivoAnexo\": \"\",\n                        \"Ativo\": \"S\",\n                        \"CriarFolhaRegistro\": null,\n                        \"PeriodoInicio\": null,\n                        \"PeriodoFinal\": null,\n                        \"NumeroExterno\": null,\n                        \"LocalPrestacao\": null,\n                        \"TextoBreve\": null,\n                        \"EncarregadoInterno\": null,\n                        \"EncarregadoExterno\": null,\n                        \"Descricao\": null,\n                        \"StatusFolha\": null,\n                        \"Subitens\": [],\n                        \"Parcelas\": [\n                            {\n                                \"NumeroParcela\": \"1\",\n                                \"Quantidade\": \"1\",\n                                \"DataEntrega\": \"2026-06-23\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        },\n        \"Status\": 400,\n        \"Link_Referencia\": \"https://api.homologacao.websupply.com.br/LIGHT_PLUS/v1.0/PedidoCatalogo/gerar_pedido_catalogo\"\n    }\n}"
                 }
               ]
+            },
+            {
+              "name": "@PED_CAT-3.6 @business - Folha de registro com mais de um subitem",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"NumeroPedidoLight\":\"6017\",\r\n   \"NumeroPedidoWebsupply\":null,\r\n   \"CodigoUsuarioCriador\":\"4011806\",\r\n   \"DescricaoResumida\":\"Medição Nexans Brasil S/A, no período 01/05/2026 a 31/05/2026\",\r\n   \"DescricaoCompleta\":\"Medição Nexans Brasil S/A, Contrato: 4600009739, no período 01/05/2026 a 31/05/2026\",\r\n   \"CodigoTipoPedido\":\"35\",\r\n   \"CodigoTipoProcesso\":\"20\",\r\n   \"CodigoEmpresa\":\"LI10\",\r\n   \"CodigoGrupoCompras\":\"PDW\",\r\n   \"CodigoContrato\":\"4600009739\",\r\n   \"Observacao\":\"Pedido catalogo gerado pela medicao de contratos Light Plus. Solicitacao: 6217. Linhas: [941, 942, 943].\",\r\n   \"Justificativa\":null,\r\n   \"ObservacaoContrato\":null,\r\n   \"ArquivoAnexo\":null,\r\n   \"PedidoAprovado\":\"N\",\r\n   \"MatriculaAprovadorPedido\":null,\r\n   \"Rateios\":[\r\n      {\r\n         \"TipoCalculo\":\"P\",\r\n         \"Valor\":\"100\",\r\n         \"CodigoCentroCusto\":\"5005001\"\r\n      }\r\n   ],\r\n   \"Itens\":[\r\n      {\r\n         \"NumeroSequencial\":\"1\",\r\n         \"NumeroItemContrato\":\"1\",\r\n         \"Quantidade\":\"1\",\r\n         \"CodigoTipoClassificacaoContabil\":\"F\",\r\n         \"CodigoClassificacaoContabil\":\"18206724\",\r\n         \"CodigoCentroLogistico\":\"08\",\r\n         \"SiglaOrgao\":\"TTD\",\r\n         \"DataRemessa\":\"2026-05-31\",\r\n         \"CodigoLocalEntrega\":\"369288\",\r\n         \"Complemento\":null,\r\n         \"CodigoContaContabil\":\"6130214291\",\r\n         \"CompraConsumo\":\"N\",\r\n         \"ArquivoAnexo\":null,\r\n         \"Ativo\":\"S\",\r\n         \"CriarFolhaRegistro\":\"S\",\r\n         \"PeriodoInicio\":\"2026-05-01\",\r\n         \"PeriodoFinal\":\"2026-05-31\",\r\n         \"NumeroExterno\":\"0108/010501\",\r\n         \"LocalPrestacao\":\"0001\",\r\n         \"TextoBreve\":\"Teste servico - TI\",\r\n         \"EncarregadoInterno\":\"Randal\",\r\n         \"EncarregadoExterno\":\"Nexans Brasil S/A\",\r\n         \"Descricao\":\"Teste servico - TI\",\r\n         \"StatusFolha\":null,\r\n         \"Subitens\":[\r\n            {\r\n               \"NumeroSequencial\":\"1\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"151.10\",\r\n               \"Ativo\":\"S\"\r\n            },\r\n            {\r\n               \"NumeroSequencial\":\"2\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"21.00\",\r\n               \"Ativo\":\"S\"\r\n            }\r\n         ],\r\n         \"Parcelas\":[\r\n         ]\r\n      },\r\n      {\r\n         \"NumeroSequencial\":\"2\",\r\n         \"NumeroItemContrato\":\"2\",\r\n         \"Quantidade\":\"1\",\r\n         \"CodigoTipoClassificacaoContabil\":\"K\",\r\n         \"CodigoClassificacaoContabil\":\"5005001\",\r\n         \"CodigoCentroLogistico\":\"08\",\r\n         \"SiglaOrgao\":\"TTD\",\r\n         \"DataRemessa\":\"2026-05-31\",\r\n         \"CodigoLocalEntrega\":\"369288\",\r\n         \"Complemento\":null,\r\n         \"CodigoContaContabil\":\"6130214291\",\r\n         \"CompraConsumo\":\"N\",\r\n         \"ArquivoAnexo\":null,\r\n         \"Ativo\":\"S\",\r\n         \"CriarFolhaRegistro\":\"S\",\r\n         \"PeriodoInicio\":\"2026-05-01\",\r\n         \"PeriodoFinal\":\"2026-05-31\",\r\n         \"NumeroExterno\":\"0108/010501\",\r\n         \"LocalPrestacao\":\"0001\",\r\n         \"TextoBreve\":\"Teste servico - TI rqs\",\r\n         \"EncarregadoInterno\":\"Randal\",\r\n         \"EncarregadoExterno\":\"Nexans Brasil S/A\",\r\n         \"Descricao\":\"Teste servico - TI rqs\",\r\n         \"StatusFolha\":null,\r\n         \"Subitens\":[\r\n            {\r\n               \"NumeroSequencial\":\"1\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"169.00\",\r\n               \"Ativo\":\"S\"\r\n            }\r\n         ],\r\n         \"Parcelas\":[\r\n         ]\r\n      }\r\n   ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{endpoint_base}}/v1.0/pedidocatalogo/gerar_pedido_catalogo",
+                  "host": [
+                    "{{endpoint_base}}"
+                  ],
+                  "path": [
+                    "v1.0",
+                    "pedidocatalogo",
+                    "gerar_pedido_catalogo"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "@PED_CAT-3.6 @business - Folha de registro com mais de um subitem",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n   \"NumeroPedidoLight\":\"6017\",\r\n   \"NumeroPedidoWebsupply\":null,\r\n   \"CodigoUsuarioCriador\":\"4011806\",\r\n   \"DescricaoResumida\":\"Medição Nexans Brasil S/A, no período 01/05/2026 a 31/05/2026\",\r\n   \"DescricaoCompleta\":\"Medição Nexans Brasil S/A, Contrato: 4600009739, no período 01/05/2026 a 31/05/2026\",\r\n   \"CodigoTipoPedido\":\"35\",\r\n   \"CodigoTipoProcesso\":\"20\",\r\n   \"CodigoEmpresa\":\"LI10\",\r\n   \"CodigoGrupoCompras\":\"PDW\",\r\n   \"CodigoContrato\":\"4600009739\",\r\n   \"Observacao\":\"Pedido catalogo gerado pela medicao de contratos Light Plus. Solicitacao: 6217. Linhas: [941, 942, 943].\",\r\n   \"Justificativa\":null,\r\n   \"ObservacaoContrato\":null,\r\n   \"ArquivoAnexo\":null,\r\n   \"PedidoAprovado\":\"N\",\r\n   \"MatriculaAprovadorPedido\":null,\r\n   \"Rateios\":[\r\n      {\r\n         \"TipoCalculo\":\"P\",\r\n         \"Valor\":\"100\",\r\n         \"CodigoCentroCusto\":\"5005001\"\r\n      }\r\n   ],\r\n   \"Itens\":[\r\n      {\r\n         \"NumeroSequencial\":\"1\",\r\n         \"NumeroItemContrato\":\"1\",\r\n         \"Quantidade\":\"1\",\r\n         \"CodigoTipoClassificacaoContabil\":\"F\",\r\n         \"CodigoClassificacaoContabil\":\"18206724\",\r\n         \"CodigoCentroLogistico\":\"08\",\r\n         \"SiglaOrgao\":\"TTD\",\r\n         \"DataRemessa\":\"2026-05-31\",\r\n         \"CodigoLocalEntrega\":\"369288\",\r\n         \"Complemento\":null,\r\n         \"CodigoContaContabil\":\"6130214291\",\r\n         \"CompraConsumo\":\"N\",\r\n         \"ArquivoAnexo\":null,\r\n         \"Ativo\":\"S\",\r\n         \"CriarFolhaRegistro\":\"S\",\r\n         \"PeriodoInicio\":\"2026-05-01\",\r\n         \"PeriodoFinal\":\"2026-05-31\",\r\n         \"NumeroExterno\":\"0108/010501\",\r\n         \"LocalPrestacao\":\"0001\",\r\n         \"TextoBreve\":\"Teste servico - TI\",\r\n         \"EncarregadoInterno\":\"Randal\",\r\n         \"EncarregadoExterno\":\"Nexans Brasil S/A\",\r\n         \"Descricao\":\"Teste servico - TI\",\r\n         \"StatusFolha\":null,\r\n         \"Subitens\":[\r\n            {\r\n               \"NumeroSequencial\":\"1\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"151.10\",\r\n               \"Ativo\":\"S\"\r\n            },\r\n            {\r\n               \"NumeroSequencial\":\"2\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"21.00\",\r\n               \"Ativo\":\"S\"\r\n            }\r\n         ],\r\n         \"Parcelas\":[\r\n         ]\r\n      },\r\n      {\r\n         \"NumeroSequencial\":\"2\",\r\n         \"NumeroItemContrato\":\"2\",\r\n         \"Quantidade\":\"1\",\r\n         \"CodigoTipoClassificacaoContabil\":\"K\",\r\n         \"CodigoClassificacaoContabil\":\"5005001\",\r\n         \"CodigoCentroLogistico\":\"08\",\r\n         \"SiglaOrgao\":\"TTD\",\r\n         \"DataRemessa\":\"2026-05-31\",\r\n         \"CodigoLocalEntrega\":\"369288\",\r\n         \"Complemento\":null,\r\n         \"CodigoContaContabil\":\"6130214291\",\r\n         \"CompraConsumo\":\"N\",\r\n         \"ArquivoAnexo\":null,\r\n         \"Ativo\":\"S\",\r\n         \"CriarFolhaRegistro\":\"S\",\r\n         \"PeriodoInicio\":\"2026-05-01\",\r\n         \"PeriodoFinal\":\"2026-05-31\",\r\n         \"NumeroExterno\":\"0108/010501\",\r\n         \"LocalPrestacao\":\"0001\",\r\n         \"TextoBreve\":\"Teste servico - TI rqs\",\r\n         \"EncarregadoInterno\":\"Randal\",\r\n         \"EncarregadoExterno\":\"Nexans Brasil S/A\",\r\n         \"Descricao\":\"Teste servico - TI rqs\",\r\n         \"StatusFolha\":null,\r\n         \"Subitens\":[\r\n            {\r\n               \"NumeroSequencial\":\"1\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"169.00\",\r\n               \"Ativo\":\"S\"\r\n            }\r\n         ],\r\n         \"Parcelas\":[\r\n         ]\r\n      }\r\n   ]\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{endpoint_base}}/v1.0/pedidocatalogo/gerar_pedido_catalogo",
+                      "host": [
+                        "{{endpoint_base}}"
+                      ],
+                      "path": [
+                        "v1.0",
+                        "pedidocatalogo",
+                        "gerar_pedido_catalogo"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Mon, 22 Jun 2026 17:37:58 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "cloudflare"
+                    },
+                    {
+                      "key": "api-supported-versions",
+                      "value": "1.0"
+                    },
+                    {
+                      "key": "robots",
+                      "value": "noindex, nofollow"
+                    },
+                    {
+                      "key": "X-Robots",
+                      "value": "otherbot: noindex, nofollow"
+                    },
+                    {
+                      "key": "X-Robots-Tag",
+                      "value": "googlebot: noindex, nofollow"
+                    },
+                    {
+                      "key": "x-xss-protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "x-frame-options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "object-src 'self'; frame-ancestors 'self' *.websupply.com.br *.remaza.com.br; script-src 'self' 'unsafe-inline' 'unsafe-eval' apis.google.com *.google.com *.gstatic.com code.jquery.com unpkg.com *.fontawesome.com *.aspnetcdn.com *.yahooapis.com cdn.jsdelivr.net cdnjs.cloudflare.com www.googletagmanager.com *.bootstrapcdn.com cdn.datatables.net connect.facebook.net *.angularjs.org ajax.googleapis.com *.google-analytics.com *.googleadservices.com *.doubleclick.net *.weatherwidget.org cdn.tailwindcss.com;"
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=31536000; includeSubDomains; preload"
+                    },
+                    {
+                      "key": "x-content-type-options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "Nel",
+                      "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                    },
+                    {
+                      "key": "cf-cache-status",
+                      "value": "DYNAMIC"
+                    },
+                    {
+                      "key": "referrer-policy",
+                      "value": "same-origin"
+                    },
+                    {
+                      "key": "Report-To",
+                      "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=5JVhVW92RewUEeyxfFFba2jwpAXa3Sj6mrBtNCwC%2F9PtkdDI%2BoWh4qksfsYMjCr83SN5fKXr3dzNNr4vP%2Ft7dnCUmdmWJv4hvv21m%2Bcfx3EyZ7%2FRPLpotYHn2Ig6I3Y4tB44tR4Sns4uB%2FfM8KUuYPqs\"}]}"
+                    },
+                    {
+                      "key": "expect-ct",
+                      "value": "max-age=86400, enforce"
+                    },
+                    {
+                      "key": "CF-RAY",
+                      "value": "a0fd061cdd766231-GRU"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"Mensagem\": {\n        \"Titulo\": \"Atenção\",\n        \"Texto\": \"Pedido de Catálogo Rejeitado pelas Regras de Negócio\",\n        \"Tipo\": \"warning\"\n    },\n    \"Requisicao\": {\n        \"Retorno\": {\n            \"Validacao\": {\n                \"CriticasNegocio\": [\n                    \"Foram encontradas inconsistências na validação.\",\n                    \"VALIDACAO: Item 1 - Folha Registro >>> Este item possui mais de um subitem. A inclusão de folha de registro não é permitida.\"\n                ]\n            },\n            \"Captura\": {\n                \"Estagio\": \"Processamento e Validação\"\n            },\n            \"Dados\": {\n                \"NumeroPedidoLight\": \"6017\",\n                \"NumeroPedidoWebsupply\": null,\n                \"CodigoUsuarioCriador\": \"4011806\",\n                \"DescricaoResumida\": \"Medição Nexans Brasil S/A, no período 01/05/2026 a 31/05/2026\",\n                \"DescricaoCompleta\": \"Medição Nexans Brasil S/A, Contrato: 4600009739, no período 01/05/2026 a 31/05/2026\",\n                \"CodigoTipoPedido\": \"35\",\n                \"CodigoTipoProcesso\": \"20\",\n                \"CodigoEmpresa\": \"LI10\",\n                \"CodigoGrupoCompras\": \"PDW\",\n                \"CodigoContrato\": \"4600009739\",\n                \"Observacao\": \"Pedido catalogo gerado pela medicao de contratos Light Plus. Solicitacao: 6217. Linhas: [941, 942, 943].\",\n                \"Justificativa\": null,\n                \"ObservacaoContrato\": null,\n                \"ArquivoAnexo\": null,\n                \"PedidoAprovado\": \"N\",\n                \"MatriculaAprovadorPedido\": null,\n                \"Rateios\": [\n                    {\n                        \"TipoCalculo\": \"P\",\n                        \"Valor\": \"100\",\n                        \"CodigoCentroCusto\": \"5005001\"\n                    }\n                ],\n                \"Itens\": [\n                    {\n                        \"NumeroSequencial\": \"1\",\n                        \"NumeroItemContrato\": \"1\",\n                        \"Quantidade\": \"1\",\n                        \"CodigoTipoClassificacaoContabil\": \"F\",\n                        \"CodigoClassificacaoContabil\": \"18206724\",\n                        \"CodigoCentroLogistico\": \"08\",\n                        \"SiglaOrgao\": \"TTD\",\n                        \"DataRemessa\": \"2026-05-31\",\n                        \"CodigoLocalEntrega\": \"369288\",\n                        \"Complemento\": null,\n                        \"CodigoContaContabil\": \"6130214291\",\n                        \"CompraConsumo\": \"N\",\n                        \"ArquivoAnexo\": null,\n                        \"Ativo\": \"S\",\n                        \"CriarFolhaRegistro\": \"S\",\n                        \"PeriodoInicio\": \"2026-05-01\",\n                        \"PeriodoFinal\": \"2026-05-31\",\n                        \"NumeroExterno\": \"0108/010501\",\n                        \"LocalPrestacao\": \"0001\",\n                        \"TextoBreve\": \"Teste servico - TI\",\n                        \"EncarregadoInterno\": \"Randal\",\n                        \"EncarregadoExterno\": \"Nexans Brasil S/A\",\n                        \"Descricao\": \"Teste servico - TI\",\n                        \"StatusFolha\": null,\n                        \"Subitens\": [\n                            {\n                                \"NumeroSequencial\": \"1\",\n                                \"NumeroItemContrato\": \"10\",\n                                \"Quantidade\": \"151.10\",\n                                \"Ativo\": \"S\"\n                            },\n                            {\n                                \"NumeroSequencial\": \"2\",\n                                \"NumeroItemContrato\": \"10\",\n                                \"Quantidade\": \"21.00\",\n                                \"Ativo\": \"S\"\n                            }\n                        ],\n                        \"Parcelas\": []\n                    },\n                    {\n                        \"NumeroSequencial\": \"2\",\n                        \"NumeroItemContrato\": \"2\",\n                        \"Quantidade\": \"1\",\n                        \"CodigoTipoClassificacaoContabil\": \"K\",\n                        \"CodigoClassificacaoContabil\": \"5005001\",\n                        \"CodigoCentroLogistico\": \"08\",\n                        \"SiglaOrgao\": \"TTD\",\n                        \"DataRemessa\": \"2026-05-31\",\n                        \"CodigoLocalEntrega\": \"369288\",\n                        \"Complemento\": null,\n                        \"CodigoContaContabil\": \"6130214291\",\n                        \"CompraConsumo\": \"N\",\n                        \"ArquivoAnexo\": null,\n                        \"Ativo\": \"S\",\n                        \"CriarFolhaRegistro\": \"S\",\n                        \"PeriodoInicio\": \"2026-05-01\",\n                        \"PeriodoFinal\": \"2026-05-31\",\n                        \"NumeroExterno\": \"0108/010501\",\n                        \"LocalPrestacao\": \"0001\",\n                        \"TextoBreve\": \"Teste servico - TI rqs\",\n                        \"EncarregadoInterno\": \"Randal\",\n                        \"EncarregadoExterno\": \"Nexans Brasil S/A\",\n                        \"Descricao\": \"Teste servico - TI rqs\",\n                        \"StatusFolha\": null,\n                        \"Subitens\": [\n                            {\n                                \"NumeroSequencial\": \"1\",\n                                \"NumeroItemContrato\": \"10\",\n                                \"Quantidade\": \"169.00\",\n                                \"Ativo\": \"S\"\n                            }\n                        ],\n                        \"Parcelas\": []\n                    }\n                ]\n            }\n        },\n        \"Status\": 400,\n        \"Link_Referencia\": \"https://api.homologacao.websupply.com.br/LIGHT_PLUS/v1.0/PedidoCatalogo/gerar_pedido_catalogo\"\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "@PED_CAT-3.6 @business - Folha de registro com apenas um subitem",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"NumeroPedidoLight\":\"6017\",\r\n   \"NumeroPedidoWebsupply\":null,\r\n   \"CodigoUsuarioCriador\":\"4011806\",\r\n   \"DescricaoResumida\":\"Medição Nexans Brasil S/A, no período 01/05/2026 a 31/05/2026\",\r\n   \"DescricaoCompleta\":\"Medição Nexans Brasil S/A, Contrato: 4600009739, no período 01/05/2026 a 31/05/2026\",\r\n   \"CodigoTipoPedido\":\"35\",\r\n   \"CodigoTipoProcesso\":\"20\",\r\n   \"CodigoEmpresa\":\"LI10\",\r\n   \"CodigoGrupoCompras\":\"PDW\",\r\n   \"CodigoContrato\":\"4600009739\",\r\n   \"Observacao\":\"Pedido catalogo gerado pela medicao de contratos Light Plus. Solicitacao: 6217. Linhas: [941, 942, 943].\",\r\n   \"Justificativa\":null,\r\n   \"ObservacaoContrato\":null,\r\n   \"ArquivoAnexo\":null,\r\n   \"PedidoAprovado\":\"N\",\r\n   \"MatriculaAprovadorPedido\":null,\r\n   \"Rateios\":[\r\n      {\r\n         \"TipoCalculo\":\"P\",\r\n         \"Valor\":\"100\",\r\n         \"CodigoCentroCusto\":\"5005001\"\r\n      }\r\n   ],\r\n   \"Itens\":[\r\n      {\r\n         \"NumeroSequencial\":\"1\",\r\n         \"NumeroItemContrato\":\"1\",\r\n         \"Quantidade\":\"1\",\r\n         \"CodigoTipoClassificacaoContabil\":\"F\",\r\n         \"CodigoClassificacaoContabil\":\"18206724\",\r\n         \"CodigoCentroLogistico\":\"08\",\r\n         \"SiglaOrgao\":\"TTD\",\r\n         \"DataRemessa\":\"2026-05-31\",\r\n         \"CodigoLocalEntrega\":\"369288\",\r\n         \"Complemento\":null,\r\n         \"CodigoContaContabil\":\"6130214291\",\r\n         \"CompraConsumo\":\"N\",\r\n         \"ArquivoAnexo\":null,\r\n         \"Ativo\":\"S\",\r\n         \"CriarFolhaRegistro\":\"S\",\r\n         \"PeriodoInicio\":\"2026-05-01\",\r\n         \"PeriodoFinal\":\"2026-05-31\",\r\n         \"NumeroExterno\":\"0108/010501\",\r\n         \"LocalPrestacao\":\"0001\",\r\n         \"TextoBreve\":\"Teste servico - TI\",\r\n         \"EncarregadoInterno\":\"Randal\",\r\n         \"EncarregadoExterno\":\"Nexans Brasil S/A\",\r\n         \"Descricao\":\"Teste servico - TI\",\r\n         \"StatusFolha\":null,\r\n         \"Subitens\":[\r\n            {\r\n               \"NumeroSequencial\":\"1\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"151.10\",\r\n               \"Ativo\":\"S\"\r\n            }\r\n         ],\r\n         \"Parcelas\":[\r\n         ]\r\n      },\r\n      {\r\n         \"NumeroSequencial\":\"2\",\r\n         \"NumeroItemContrato\":\"2\",\r\n         \"Quantidade\":\"1\",\r\n         \"CodigoTipoClassificacaoContabil\":\"K\",\r\n         \"CodigoClassificacaoContabil\":\"5005001\",\r\n         \"CodigoCentroLogistico\":\"08\",\r\n         \"SiglaOrgao\":\"TTD\",\r\n         \"DataRemessa\":\"2026-05-31\",\r\n         \"CodigoLocalEntrega\":\"369288\",\r\n         \"Complemento\":null,\r\n         \"CodigoContaContabil\":\"6130214291\",\r\n         \"CompraConsumo\":\"N\",\r\n         \"ArquivoAnexo\":null,\r\n         \"Ativo\":\"S\",\r\n         \"CriarFolhaRegistro\":\"S\",\r\n         \"PeriodoInicio\":\"2026-05-01\",\r\n         \"PeriodoFinal\":\"2026-05-31\",\r\n         \"NumeroExterno\":\"0108/010501\",\r\n         \"LocalPrestacao\":\"0001\",\r\n         \"TextoBreve\":\"Teste servico - TI rqs\",\r\n         \"EncarregadoInterno\":\"Randal\",\r\n         \"EncarregadoExterno\":\"Nexans Brasil S/A\",\r\n         \"Descricao\":\"Teste servico - TI rqs\",\r\n         \"StatusFolha\":null,\r\n         \"Subitens\":[\r\n            {\r\n               \"NumeroSequencial\":\"1\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"169.00\",\r\n               \"Ativo\":\"S\"\r\n            }\r\n         ],\r\n         \"Parcelas\":[\r\n         ]\r\n      }\r\n   ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{endpoint_base}}/v1.0/pedidocatalogo/gerar_pedido_catalogo",
+                  "host": [
+                    "{{endpoint_base}}"
+                  ],
+                  "path": [
+                    "v1.0",
+                    "pedidocatalogo",
+                    "gerar_pedido_catalogo"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "@PED_CAT-3.6 @business - Folha de registro com mais de um subitem",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n   \"NumeroPedidoLight\":\"6017\",\r\n   \"NumeroPedidoWebsupply\":null,\r\n   \"CodigoUsuarioCriador\":\"4011806\",\r\n   \"DescricaoResumida\":\"Medição Nexans Brasil S/A, no período 01/05/2026 a 31/05/2026\",\r\n   \"DescricaoCompleta\":\"Medição Nexans Brasil S/A, Contrato: 4600009739, no período 01/05/2026 a 31/05/2026\",\r\n   \"CodigoTipoPedido\":\"35\",\r\n   \"CodigoTipoProcesso\":\"20\",\r\n   \"CodigoEmpresa\":\"LI10\",\r\n   \"CodigoGrupoCompras\":\"PDW\",\r\n   \"CodigoContrato\":\"4600009739\",\r\n   \"Observacao\":\"Pedido catalogo gerado pela medicao de contratos Light Plus. Solicitacao: 6217. Linhas: [941, 942, 943].\",\r\n   \"Justificativa\":null,\r\n   \"ObservacaoContrato\":null,\r\n   \"ArquivoAnexo\":null,\r\n   \"PedidoAprovado\":\"N\",\r\n   \"MatriculaAprovadorPedido\":null,\r\n   \"Rateios\":[\r\n      {\r\n         \"TipoCalculo\":\"P\",\r\n         \"Valor\":\"100\",\r\n         \"CodigoCentroCusto\":\"5005001\"\r\n      }\r\n   ],\r\n   \"Itens\":[\r\n      {\r\n         \"NumeroSequencial\":\"1\",\r\n         \"NumeroItemContrato\":\"1\",\r\n         \"Quantidade\":\"1\",\r\n         \"CodigoTipoClassificacaoContabil\":\"F\",\r\n         \"CodigoClassificacaoContabil\":\"18206724\",\r\n         \"CodigoCentroLogistico\":\"08\",\r\n         \"SiglaOrgao\":\"TTD\",\r\n         \"DataRemessa\":\"2026-05-31\",\r\n         \"CodigoLocalEntrega\":\"369288\",\r\n         \"Complemento\":null,\r\n         \"CodigoContaContabil\":\"6130214291\",\r\n         \"CompraConsumo\":\"N\",\r\n         \"ArquivoAnexo\":null,\r\n         \"Ativo\":\"S\",\r\n         \"CriarFolhaRegistro\":\"S\",\r\n         \"PeriodoInicio\":\"2026-05-01\",\r\n         \"PeriodoFinal\":\"2026-05-31\",\r\n         \"NumeroExterno\":\"0108/010501\",\r\n         \"LocalPrestacao\":\"0001\",\r\n         \"TextoBreve\":\"Teste servico - TI\",\r\n         \"EncarregadoInterno\":\"Randal\",\r\n         \"EncarregadoExterno\":\"Nexans Brasil S/A\",\r\n         \"Descricao\":\"Teste servico - TI\",\r\n         \"StatusFolha\":null,\r\n         \"Subitens\":[\r\n            {\r\n               \"NumeroSequencial\":\"1\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"151.10\",\r\n               \"Ativo\":\"S\"\r\n            },\r\n            {\r\n               \"NumeroSequencial\":\"2\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"21.00\",\r\n               \"Ativo\":\"S\"\r\n            }\r\n         ],\r\n         \"Parcelas\":[\r\n         ]\r\n      },\r\n      {\r\n         \"NumeroSequencial\":\"2\",\r\n         \"NumeroItemContrato\":\"2\",\r\n         \"Quantidade\":\"1\",\r\n         \"CodigoTipoClassificacaoContabil\":\"K\",\r\n         \"CodigoClassificacaoContabil\":\"5005001\",\r\n         \"CodigoCentroLogistico\":\"08\",\r\n         \"SiglaOrgao\":\"TTD\",\r\n         \"DataRemessa\":\"2026-05-31\",\r\n         \"CodigoLocalEntrega\":\"369288\",\r\n         \"Complemento\":null,\r\n         \"CodigoContaContabil\":\"6130214291\",\r\n         \"CompraConsumo\":\"N\",\r\n         \"ArquivoAnexo\":null,\r\n         \"Ativo\":\"S\",\r\n         \"CriarFolhaRegistro\":\"S\",\r\n         \"PeriodoInicio\":\"2026-05-01\",\r\n         \"PeriodoFinal\":\"2026-05-31\",\r\n         \"NumeroExterno\":\"0108/010501\",\r\n         \"LocalPrestacao\":\"0001\",\r\n         \"TextoBreve\":\"Teste servico - TI rqs\",\r\n         \"EncarregadoInterno\":\"Randal\",\r\n         \"EncarregadoExterno\":\"Nexans Brasil S/A\",\r\n         \"Descricao\":\"Teste servico - TI rqs\",\r\n         \"StatusFolha\":null,\r\n         \"Subitens\":[\r\n            {\r\n               \"NumeroSequencial\":\"1\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"169.00\",\r\n               \"Ativo\":\"S\"\r\n            }\r\n         ],\r\n         \"Parcelas\":[\r\n         ]\r\n      }\r\n   ]\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{endpoint_base}}/v1.0/pedidocatalogo/gerar_pedido_catalogo",
+                      "host": [
+                        "{{endpoint_base}}"
+                      ],
+                      "path": [
+                        "v1.0",
+                        "pedidocatalogo",
+                        "gerar_pedido_catalogo"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Mon, 22 Jun 2026 17:37:58 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "cloudflare"
+                    },
+                    {
+                      "key": "api-supported-versions",
+                      "value": "1.0"
+                    },
+                    {
+                      "key": "robots",
+                      "value": "noindex, nofollow"
+                    },
+                    {
+                      "key": "X-Robots",
+                      "value": "otherbot: noindex, nofollow"
+                    },
+                    {
+                      "key": "X-Robots-Tag",
+                      "value": "googlebot: noindex, nofollow"
+                    },
+                    {
+                      "key": "x-xss-protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "x-frame-options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "object-src 'self'; frame-ancestors 'self' *.websupply.com.br *.remaza.com.br; script-src 'self' 'unsafe-inline' 'unsafe-eval' apis.google.com *.google.com *.gstatic.com code.jquery.com unpkg.com *.fontawesome.com *.aspnetcdn.com *.yahooapis.com cdn.jsdelivr.net cdnjs.cloudflare.com www.googletagmanager.com *.bootstrapcdn.com cdn.datatables.net connect.facebook.net *.angularjs.org ajax.googleapis.com *.google-analytics.com *.googleadservices.com *.doubleclick.net *.weatherwidget.org cdn.tailwindcss.com;"
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=31536000; includeSubDomains; preload"
+                    },
+                    {
+                      "key": "x-content-type-options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "Nel",
+                      "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                    },
+                    {
+                      "key": "cf-cache-status",
+                      "value": "DYNAMIC"
+                    },
+                    {
+                      "key": "referrer-policy",
+                      "value": "same-origin"
+                    },
+                    {
+                      "key": "Report-To",
+                      "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=5JVhVW92RewUEeyxfFFba2jwpAXa3Sj6mrBtNCwC%2F9PtkdDI%2BoWh4qksfsYMjCr83SN5fKXr3dzNNr4vP%2Ft7dnCUmdmWJv4hvv21m%2Bcfx3EyZ7%2FRPLpotYHn2Ig6I3Y4tB44tR4Sns4uB%2FfM8KUuYPqs\"}]}"
+                    },
+                    {
+                      "key": "expect-ct",
+                      "value": "max-age=86400, enforce"
+                    },
+                    {
+                      "key": "CF-RAY",
+                      "value": "a0fd061cdd766231-GRU"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"Mensagem\": {\n        \"Titulo\": \"Atenção\",\n        \"Texto\": \"Pedido de Catálogo Rejeitado pelas Regras de Negócio\",\n        \"Tipo\": \"warning\"\n    },\n    \"Requisicao\": {\n        \"Retorno\": {\n            \"Validacao\": {\n                \"CriticasNegocio\": [\n                    \"Foram encontradas inconsistências na validação.\",\n                    \"VALIDACAO: Item 1 - Folha Registro >>> Este item possui mais de um subitem. A inclusão de folha de registro não é permitida.\"\n                ]\n            },\n            \"Captura\": {\n                \"Estagio\": \"Processamento e Validação\"\n            },\n            \"Dados\": {\n                \"NumeroPedidoLight\": \"6017\",\n                \"NumeroPedidoWebsupply\": null,\n                \"CodigoUsuarioCriador\": \"4011806\",\n                \"DescricaoResumida\": \"Medição Nexans Brasil S/A, no período 01/05/2026 a 31/05/2026\",\n                \"DescricaoCompleta\": \"Medição Nexans Brasil S/A, Contrato: 4600009739, no período 01/05/2026 a 31/05/2026\",\n                \"CodigoTipoPedido\": \"35\",\n                \"CodigoTipoProcesso\": \"20\",\n                \"CodigoEmpresa\": \"LI10\",\n                \"CodigoGrupoCompras\": \"PDW\",\n                \"CodigoContrato\": \"4600009739\",\n                \"Observacao\": \"Pedido catalogo gerado pela medicao de contratos Light Plus. Solicitacao: 6217. Linhas: [941, 942, 943].\",\n                \"Justificativa\": null,\n                \"ObservacaoContrato\": null,\n                \"ArquivoAnexo\": null,\n                \"PedidoAprovado\": \"N\",\n                \"MatriculaAprovadorPedido\": null,\n                \"Rateios\": [\n                    {\n                        \"TipoCalculo\": \"P\",\n                        \"Valor\": \"100\",\n                        \"CodigoCentroCusto\": \"5005001\"\n                    }\n                ],\n                \"Itens\": [\n                    {\n                        \"NumeroSequencial\": \"1\",\n                        \"NumeroItemContrato\": \"1\",\n                        \"Quantidade\": \"1\",\n                        \"CodigoTipoClassificacaoContabil\": \"F\",\n                        \"CodigoClassificacaoContabil\": \"18206724\",\n                        \"CodigoCentroLogistico\": \"08\",\n                        \"SiglaOrgao\": \"TTD\",\n                        \"DataRemessa\": \"2026-05-31\",\n                        \"CodigoLocalEntrega\": \"369288\",\n                        \"Complemento\": null,\n                        \"CodigoContaContabil\": \"6130214291\",\n                        \"CompraConsumo\": \"N\",\n                        \"ArquivoAnexo\": null,\n                        \"Ativo\": \"S\",\n                        \"CriarFolhaRegistro\": \"S\",\n                        \"PeriodoInicio\": \"2026-05-01\",\n                        \"PeriodoFinal\": \"2026-05-31\",\n                        \"NumeroExterno\": \"0108/010501\",\n                        \"LocalPrestacao\": \"0001\",\n                        \"TextoBreve\": \"Teste servico - TI\",\n                        \"EncarregadoInterno\": \"Randal\",\n                        \"EncarregadoExterno\": \"Nexans Brasil S/A\",\n                        \"Descricao\": \"Teste servico - TI\",\n                        \"StatusFolha\": null,\n                        \"Subitens\": [\n                            {\n                                \"NumeroSequencial\": \"1\",\n                                \"NumeroItemContrato\": \"10\",\n                                \"Quantidade\": \"151.10\",\n                                \"Ativo\": \"S\"\n                            },\n                            {\n                                \"NumeroSequencial\": \"2\",\n                                \"NumeroItemContrato\": \"10\",\n                                \"Quantidade\": \"21.00\",\n                                \"Ativo\": \"S\"\n                            }\n                        ],\n                        \"Parcelas\": []\n                    },\n                    {\n                        \"NumeroSequencial\": \"2\",\n                        \"NumeroItemContrato\": \"2\",\n                        \"Quantidade\": \"1\",\n                        \"CodigoTipoClassificacaoContabil\": \"K\",\n                        \"CodigoClassificacaoContabil\": \"5005001\",\n                        \"CodigoCentroLogistico\": \"08\",\n                        \"SiglaOrgao\": \"TTD\",\n                        \"DataRemessa\": \"2026-05-31\",\n                        \"CodigoLocalEntrega\": \"369288\",\n                        \"Complemento\": null,\n                        \"CodigoContaContabil\": \"6130214291\",\n                        \"CompraConsumo\": \"N\",\n                        \"ArquivoAnexo\": null,\n                        \"Ativo\": \"S\",\n                        \"CriarFolhaRegistro\": \"S\",\n                        \"PeriodoInicio\": \"2026-05-01\",\n                        \"PeriodoFinal\": \"2026-05-31\",\n                        \"NumeroExterno\": \"0108/010501\",\n                        \"LocalPrestacao\": \"0001\",\n                        \"TextoBreve\": \"Teste servico - TI rqs\",\n                        \"EncarregadoInterno\": \"Randal\",\n                        \"EncarregadoExterno\": \"Nexans Brasil S/A\",\n                        \"Descricao\": \"Teste servico - TI rqs\",\n                        \"StatusFolha\": null,\n                        \"Subitens\": [\n                            {\n                                \"NumeroSequencial\": \"1\",\n                                \"NumeroItemContrato\": \"10\",\n                                \"Quantidade\": \"169.00\",\n                                \"Ativo\": \"S\"\n                            }\n                        ],\n                        \"Parcelas\": []\n                    }\n                ]\n            }\n        },\n        \"Status\": 400,\n        \"Link_Referencia\": \"https://api.homologacao.websupply.com.br/LIGHT_PLUS/v1.0/PedidoCatalogo/gerar_pedido_catalogo\"\n    }\n}"
+                },
+                {
+                  "name": "@PED_CAT-3.6 @business - Folha de registro com apenas um subitem",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n   \"NumeroPedidoLight\":\"6017\",\r\n   \"NumeroPedidoWebsupply\":null,\r\n   \"CodigoUsuarioCriador\":\"4011806\",\r\n   \"DescricaoResumida\":\"Medição Nexans Brasil S/A, no período 01/05/2026 a 31/05/2026\",\r\n   \"DescricaoCompleta\":\"Medição Nexans Brasil S/A, Contrato: 4600009739, no período 01/05/2026 a 31/05/2026\",\r\n   \"CodigoTipoPedido\":\"35\",\r\n   \"CodigoTipoProcesso\":\"20\",\r\n   \"CodigoEmpresa\":\"LI10\",\r\n   \"CodigoGrupoCompras\":\"PDW\",\r\n   \"CodigoContrato\":\"4600009739\",\r\n   \"Observacao\":\"Pedido catalogo gerado pela medicao de contratos Light Plus. Solicitacao: 6217. Linhas: [941, 942, 943].\",\r\n   \"Justificativa\":null,\r\n   \"ObservacaoContrato\":null,\r\n   \"ArquivoAnexo\":null,\r\n   \"PedidoAprovado\":\"N\",\r\n   \"MatriculaAprovadorPedido\":null,\r\n   \"Rateios\":[\r\n      {\r\n         \"TipoCalculo\":\"P\",\r\n         \"Valor\":\"100\",\r\n         \"CodigoCentroCusto\":\"5005001\"\r\n      }\r\n   ],\r\n   \"Itens\":[\r\n      {\r\n         \"NumeroSequencial\":\"1\",\r\n         \"NumeroItemContrato\":\"1\",\r\n         \"Quantidade\":\"1\",\r\n         \"CodigoTipoClassificacaoContabil\":\"F\",\r\n         \"CodigoClassificacaoContabil\":\"18206724\",\r\n         \"CodigoCentroLogistico\":\"08\",\r\n         \"SiglaOrgao\":\"TTD\",\r\n         \"DataRemessa\":\"2026-05-31\",\r\n         \"CodigoLocalEntrega\":\"369288\",\r\n         \"Complemento\":null,\r\n         \"CodigoContaContabil\":\"6130214291\",\r\n         \"CompraConsumo\":\"N\",\r\n         \"ArquivoAnexo\":null,\r\n         \"Ativo\":\"S\",\r\n         \"CriarFolhaRegistro\":\"S\",\r\n         \"PeriodoInicio\":\"2026-05-01\",\r\n         \"PeriodoFinal\":\"2026-05-31\",\r\n         \"NumeroExterno\":\"0108/010501\",\r\n         \"LocalPrestacao\":\"0001\",\r\n         \"TextoBreve\":\"Teste servico - TI\",\r\n         \"EncarregadoInterno\":\"Randal\",\r\n         \"EncarregadoExterno\":\"Nexans Brasil S/A\",\r\n         \"Descricao\":\"Teste servico - TI\",\r\n         \"StatusFolha\":null,\r\n         \"Subitens\":[\r\n            {\r\n               \"NumeroSequencial\":\"1\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"151.10\",\r\n               \"Ativo\":\"S\"\r\n            }\r\n         ],\r\n         \"Parcelas\":[\r\n         ]\r\n      },\r\n      {\r\n         \"NumeroSequencial\":\"2\",\r\n         \"NumeroItemContrato\":\"2\",\r\n         \"Quantidade\":\"1\",\r\n         \"CodigoTipoClassificacaoContabil\":\"K\",\r\n         \"CodigoClassificacaoContabil\":\"5005001\",\r\n         \"CodigoCentroLogistico\":\"08\",\r\n         \"SiglaOrgao\":\"TTD\",\r\n         \"DataRemessa\":\"2026-05-31\",\r\n         \"CodigoLocalEntrega\":\"369288\",\r\n         \"Complemento\":null,\r\n         \"CodigoContaContabil\":\"6130214291\",\r\n         \"CompraConsumo\":\"N\",\r\n         \"ArquivoAnexo\":null,\r\n         \"Ativo\":\"S\",\r\n         \"CriarFolhaRegistro\":\"S\",\r\n         \"PeriodoInicio\":\"2026-05-01\",\r\n         \"PeriodoFinal\":\"2026-05-31\",\r\n         \"NumeroExterno\":\"0108/010501\",\r\n         \"LocalPrestacao\":\"0001\",\r\n         \"TextoBreve\":\"Teste servico - TI rqs\",\r\n         \"EncarregadoInterno\":\"Randal\",\r\n         \"EncarregadoExterno\":\"Nexans Brasil S/A\",\r\n         \"Descricao\":\"Teste servico - TI rqs\",\r\n         \"StatusFolha\":null,\r\n         \"Subitens\":[\r\n            {\r\n               \"NumeroSequencial\":\"1\",\r\n               \"NumeroItemContrato\":\"10\",\r\n               \"Quantidade\":\"169.00\",\r\n               \"Ativo\":\"S\"\r\n            }\r\n         ],\r\n         \"Parcelas\":[\r\n         ]\r\n      }\r\n   ]\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{endpoint_base}}/v1.0/pedidocatalogo/gerar_pedido_catalogo",
+                      "host": [
+                        "{{endpoint_base}}"
+                      ],
+                      "path": [
+                        "v1.0",
+                        "pedidocatalogo",
+                        "gerar_pedido_catalogo"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Mon, 22 Jun 2026 17:39:54 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "cloudflare"
+                    },
+                    {
+                      "key": "api-supported-versions",
+                      "value": "1.0"
+                    },
+                    {
+                      "key": "robots",
+                      "value": "noindex, nofollow"
+                    },
+                    {
+                      "key": "X-Robots",
+                      "value": "otherbot: noindex, nofollow"
+                    },
+                    {
+                      "key": "X-Robots-Tag",
+                      "value": "googlebot: noindex, nofollow"
+                    },
+                    {
+                      "key": "x-xss-protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "x-frame-options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "object-src 'self'; frame-ancestors 'self' *.websupply.com.br *.remaza.com.br; script-src 'self' 'unsafe-inline' 'unsafe-eval' apis.google.com *.google.com *.gstatic.com code.jquery.com unpkg.com *.fontawesome.com *.aspnetcdn.com *.yahooapis.com cdn.jsdelivr.net cdnjs.cloudflare.com www.googletagmanager.com *.bootstrapcdn.com cdn.datatables.net connect.facebook.net *.angularjs.org ajax.googleapis.com *.google-analytics.com *.googleadservices.com *.doubleclick.net *.weatherwidget.org cdn.tailwindcss.com;"
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=31536000; includeSubDomains; preload"
+                    },
+                    {
+                      "key": "x-content-type-options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "Nel",
+                      "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+                    },
+                    {
+                      "key": "cf-cache-status",
+                      "value": "DYNAMIC"
+                    },
+                    {
+                      "key": "referrer-policy",
+                      "value": "same-origin"
+                    },
+                    {
+                      "key": "Report-To",
+                      "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=rsFZnmuiu0ghuTIMWsrv8YjcKHAKC9E4%2FbPSOyBgf536ITN7y%2B%2FHxDV7w1Y7%2B74M7g0ZkF8M5IAn5LtnCBqTptkHwfAqaysHdJl92465GokN3XPYD2WKmGGdHk4r4rQpinwcZP4xz62J7RXh5fCbchhQ\"}]}"
+                    },
+                    {
+                      "key": "expect-ct",
+                      "value": "max-age=86400, enforce"
+                    },
+                    {
+                      "key": "Content-Encoding",
+                      "value": "br"
+                    },
+                    {
+                      "key": "CF-RAY",
+                      "value": "a0fd08eda858af59-GRU"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"Mensagem\": {\n        \"Titulo\": \"Sucesso\",\n        \"Texto\": \"Pedido de Catálogo Gerado\",\n        \"Tipo\": \"success\"\n    },\n    \"Requisicao\": {\n        \"Retorno\": {\n            \"Mensagem\": \"Pedido de Catálogo Processado com Sucesso\",\n            \"NumeroPedidoWebsupply\": \"20919351\",\n            \"NumeroPedidoLight\": \"6017\",\n            \"GuidProcessamento\": \"44b39384-f09d-439c-9db2-cd1151a6b06b\"\n        },\n        \"Status\": 200,\n        \"Link_Referencia\": \"https://api.homologacao.websupply.com.br/LIGHT_PLUS/v1.0/PedidoCatalogo/gerar_pedido_catalogo\"\n    }\n}"
+                }
+              ]
             }
           ]
         },
