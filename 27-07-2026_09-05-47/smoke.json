@@ -1,0 +1,166 @@
+{
+  "summary": {
+    "iterations": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "items": {
+      "total": 2,
+      "pending": 0,
+      "failed": 0
+    },
+    "scripts": {
+      "total": 11,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequests": {
+      "total": 2,
+      "pending": 0,
+      "failed": 0
+    },
+    "requests": {
+      "total": 4,
+      "pending": 0,
+      "failed": 0
+    },
+    "tests": {
+      "total": 2,
+      "pending": 0,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 20,
+      "pending": 0,
+      "failed": 0
+    },
+    "testScripts": {
+      "total": 6,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequestScripts": {
+      "total": 5,
+      "pending": 0,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "executions": [
+    {
+      "name": "@PED_CAT_SERVIÇO @smoke - Criacao valida simples",
+      "passed": 10,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 200",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Envelope Mensagem existe",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Envelope Requisicao existe",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser success",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Titulo deve existir",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Requisicao.Retorno existe",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "NumeroPedidoWebsupply retornado",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "NumeroPedidoLight retornado corretamente",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 200",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia presente",
+          "passed": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "name": "@PED_CAT_MATERIAL @smoke - Criacao valida simples",
+      "passed": 10,
+      "failed": 0,
+      "assertions": [
+        {
+          "name": "Status HTTP deve ser 200",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Envelope Mensagem existe",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Envelope Requisicao existe",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Tipo deve ser success",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Mensagem.Titulo deve existir",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Requisicao.Retorno existe",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "NumeroPedidoWebsupply retornado",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "NumeroPedidoLight retornado corretamente",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Status interno deve ser 200",
+          "passed": true,
+          "error": null
+        },
+        {
+          "name": "Link_Referencia presente",
+          "passed": true,
+          "error": null
+        }
+      ]
+    }
+  ]
+}
