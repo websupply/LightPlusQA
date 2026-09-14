@@ -1018,5 +1018,39 @@
         "success": "90.62"
       }
     }
+  },
+  {
+    "date": "14-09-2026",
+    "folder": "14-09-2026_08-08-58",
+    "failed": 7,
+    "passed": 488,
+    "total": 495,
+    "success": "98.59",
+    "phases": {
+      "smoke": {
+        "passed": 20,
+        "failed": 0,
+        "total": 20,
+        "success": "100.00"
+      },
+      "validation": {
+        "passed": 283,
+        "failed": 3,
+        "total": 286,
+        "success": "98.95"
+      },
+      "business": {
+        "passed": 126,
+        "failed": 4,
+        "total": 130,
+        "success": "96.92"
+      },
+      "alteracao": {
+        "passed": 59,
+        "failed": 0,
+        "total": 59,
+        "success": "100.00"
+      }
+    }
   }
 ]
